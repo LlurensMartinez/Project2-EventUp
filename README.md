@@ -53,7 +53,7 @@ GET /auth/signup
  Route protection
   Display signup form with:
    
-POST /signup
+POST auth/signup
   .Sends the information and creates the new user
   Body
   -name
@@ -72,7 +72,7 @@ GET /auth/login
   Validation:
   -Both fields must be completed
   -Fields must much the database
-POST /login
+POST auth/login
   **Require Anon:**
   .Sends the information, chechks the validation, if OK render Homepage
   Body:
@@ -146,7 +146,7 @@ GET /events/:id/add
 **Require User:**
   Displays add friends form
 
-POST /events/:id
+POST /events/:id/add
 **Require User:**
   Sends the info and adds the participants and redirects to /events/:id/add
   Body:
@@ -154,12 +154,12 @@ POST /events/:id
   Validation
   -Field require
 
-GET /events/:id/:event
+GET /events/:id/
 **Require User:**
   Display the event with all of its information
 
 
-GET /events/:id
+GET /events/
 **Require User:**
   Display the upcoming events and my events
 
