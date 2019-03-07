@@ -15,10 +15,19 @@ module.exports = {
     }
     next();
   },
-  requireFields (req, res, next) {
+  requireFieldsSignup (req, res, next) {
     const { username, password, name, email } = req.body;
     if (!password || !username || !email || !name) {
       req.flash('validation', 'You need to fill all the parameters');
+      res.redirect(`/auth${req.path}`);
+      return;
+    }
+    next();
+  },
+  requireFieldsLogin (req, res, next) {
+    const { username, password } = req.body;
+    if (!username || !password) {
+      req.flash('validation', 'Username or password missing');
       res.redirect(`/auth${req.path}`);
       return;
     }

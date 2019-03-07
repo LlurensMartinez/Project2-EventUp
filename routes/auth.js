@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-const { requireAnon, requireFields } = require('../middlewares/auth');
+const { requireAnon, requireFieldsSignup, requireFieldsLogin } = require('../middlewares/auth');
 
 const saltRounds = 10;
 
@@ -10,10 +10,10 @@ router.get('/signup', requireAnon, (req, res, next) => {
   const data = {
     messages: req.flash('validation')
   };
-  res.render('signup', data);
+  res.render('auth/signup', data);
 });
 
-router.post('/signup', requireAnon, requireFields, async (req, res, next) => {
+router.post('/signup', requireAnon, requireFieldsSignup, async (req, res, next) => {
   const { name, username, password, email } = req.body;
   try {
     const result = await User.findOne({ username });
@@ -37,6 +37,39 @@ router.post('/signup', requireAnon, requireFields, async (req, res, next) => {
     req.session.currentUser = createdUser;
     // Redirigimos para la homepage
     res.redirect('/');
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get('/login', requireAnon, (req, res, next) => {
+  const data = {
+    messages: req.flash('validation')
+  };
+  res.render('auth/login', data);
+});
+
+router.post('/login', requireAnon, requireFieldsLogin, async (req, res, next) => {
+  // Extraer información del body
+  const { username, password } = req.body;
+  try {
+    // comprobar que el usuario existe
+    const user = await User.findOne({ username });
+    if (!user) {
+      req.flash('validation', 'Username or password incorrect');
+      res.redirect('/auth/login');
+      return;
+    }
+    // comparar contrasena
+    if (bcrypt.compareSync(password, user.password)) {
+      // guardar la session
+      req.session.currentUser = user;
+      // redirigir
+      res.redirect('/');
+    } else {
+      req.flash('validation', 'Username or password incorrect');
+      res.redirect('/auth/login');
+    }
   } catch (error) {
     next(error);
   }
