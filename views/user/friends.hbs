@@ -7,4 +7,7 @@
 
 <h4>{{friend.name}}</h4>
 
-<form action="/users/friends" method="POST"></form>
+<form action="/users/friends" method="POST">
+<input type="text" name="name" value="{{friend.name}}">
+<button type="submit">Add</button>
+</form>
