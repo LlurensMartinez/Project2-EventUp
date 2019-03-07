@@ -5,6 +5,14 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+    
+    {{#if currentUser}}
+    <nav>
+      <form action="/auth/logout" method="POST">
+      <button type="submit">Logout</button>
+      </form>
+    </nav>
+    {{/if}}
     {{{body}}}
   </body>
 </html>

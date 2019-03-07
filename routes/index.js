@@ -5,7 +5,8 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
   if (req.session.currentUser) {
-    res.render('home');
+    const user = req.session.currentUser;
+    res.render('home', user);
   }
   res.render('index');
 });

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-const { requireAnon, requireFieldsSignup, requireFieldsLogin } = require('../middlewares/auth');
+const { requireAnon, requireFieldsSignup, requireFieldsLogin, requireUser } = require('../middlewares/auth');
 
 const saltRounds = 10;
 
@@ -73,6 +73,12 @@ router.post('/login', requireAnon, requireFieldsLogin, async (req, res, next) =>
   } catch (error) {
     next(error);
   }
+});
+
+router.post('/logout', requireUser, async (req, res, next) => {
+  delete req.session.currentUser;
+
+  res.redirect('/');
 });
 
 module.exports = router;
