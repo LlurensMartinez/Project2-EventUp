@@ -2,19 +2,23 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
-// const { requireAnon } = require('../middlewares/auth');
+const { requireAnon, requireFields } = require('../middlewares/auth');
 
 const saltRounds = 10;
 
-router.get('/signup', (req, res, next) => {
-  res.render('signup');
+router.get('/signup', requireAnon, (req, res, next) => {
+  const data = {
+    messages: req.flash('validation')
+  };
+  res.render('signup', data);
 });
 
-router.post('/signup', async (req, res, next) => {
+router.post('/signup', requireAnon, requireFields, async (req, res, next) => {
   const { name, username, password, email } = req.body;
   try {
     const result = await User.findOne({ username });
     if (result) {
+      req.flash('validation', 'This username is taken');
       res.redirect('/auth/signup');
       return;
     }
