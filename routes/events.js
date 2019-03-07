@@ -2,14 +2,17 @@
 
 const express = require('express');
 const router = express.Router();
-const { requireUser } = require('../middlewares/auth');
+const { requireUser, requireFieldsNewEvent } = require('../middlewares/auth');
 const Event = require('../models/Event');
 
 router.get('/new', requireUser, (req, res, next) => {
-  res.render('events/create-event');
+  const data = {
+    message: req.flash('validation')
+  };
+  res.render('events/create-event', data);
 });
 
-router.post('/new', requireUser, async (req, res, next) => {
+router.post('/new', requireUser, requireFieldsNewEvent, async (req, res, next) => {
   const { title, description, address, date, time } = req.body;
   const event = { title, description, address, date, time };
   console.log(event);
