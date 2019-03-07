@@ -3,11 +3,12 @@
   <head>
     <title>{{title}}</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans+Condensed:300" rel="stylesheet">
   </head>
   <body>
     
     {{#if currentUser}}
-    <nav>
+    <nav class="navbar">
       <form action="/auth/logout" method="POST">
       <button type="submit">Logout</button>
       </form>
