@@ -9,8 +9,9 @@ const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const hbs = require('hbs');
 
-const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
 
 const app = express();
 
@@ -29,7 +30,7 @@ app.use(session({
 
 app.use(flash());
 
-mongoose.connect('mongodb://localhost/tortillApp', {
+mongoose.connect('mongodb://localhost/event-up', {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
@@ -51,6 +52,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
+app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 
 // NOTE: requires a views/not-found.ejs template
