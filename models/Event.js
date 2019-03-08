@@ -26,18 +26,18 @@ const eventSchema = new Schema({
     type: ObjectId,
     required: true
   },
-  participants: {
-    type: [ObjectId],
+  participants: [{
+    type: ObjectId,
     ref: 'User'
-  },
-  rejections: {
-    type: [ObjectId],
+  }],
+  rejections: [{
+    type: ObjectId,
     ref: 'User'
-  },
-  confirmations: {
-    type: [ObjectId],
+  }],
+  confirmations: [{
+    type: ObjectId,
     ref: 'User'
-  }
+  }]
 });
 
 const Event = mongoose.model('Event', eventSchema);

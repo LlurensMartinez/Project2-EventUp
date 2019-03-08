@@ -42,11 +42,9 @@ router.post('/new', requireUser, requireFieldsNewEvent, async (req, res, next) =
 router.get('/confirmations/:id', async (req, res, next) => {
   const { id } = req.params;
   try {
-    const participants = await Event.findById(id).populate('participants');
-    console.log(participants.participants);
-    const confirmations = await Event.findById(id).populate('confirmations');
-    const rejections = await Event.findById(id).populate('rejections');
-    res.render('events/confirmations', { participants, confirmations, rejections });
+    const event = await Event.findById(id).populate('participants').populate('confirmations').populate('rejections');
+    console.log(event);
+    res.render('events/confirmations', event);
   } catch (error) {
     next(error);
   }

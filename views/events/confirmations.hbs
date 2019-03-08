@@ -9,14 +9,14 @@
 <h3>Confirmed</h3>
 <ul>
 {{#each confirmations}}
-<li>{{this}}</li>
+<li>{{this.name}}</li>
 {{/each}}
 </ul>
 
 
 <h3>Rejected</h3>
 <ul>
-{{#each rejections.rejections}}
-<li>{{this}}</li>
+{{#each rejections}}
+<li>{{this.name}}</li>
 {{/each}}
 </ul>
