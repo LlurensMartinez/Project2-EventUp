@@ -10,8 +10,9 @@ router.get('/', requireUser, async (req, res, next) => {
   const { _id } = req.session.currentUser;
   try {
     const events = await Event.find({ creator: _id });
-
-    res.render('events/events', { events });
+    const invitations = await Event.find({ participants: _id });
+    console.log(invitations);
+    res.render('events/events', { events, invitations });
   } catch (error) {
     next(error);
   }
@@ -38,9 +39,14 @@ router.post('/new', requireUser, requireFieldsNewEvent, async (req, res, next) =
 
 router.get('/:id/add', requireUser, async (req, res, next) => {
   const { id } = req.params;
+  const data = {
+    messages: req.flash('validation')
+  };
+
   try {
     const event = await Event.findById(id);
-    res.render('events/event-add', { event });
+    console.log(data);
+    res.render('events/event-add', { event, data });
   } catch (error) {
     next(error);
   }
@@ -49,12 +55,16 @@ router.get('/:id/add', requireUser, async (req, res, next) => {
 router.post('/:id/add', requireUser, async (req, res, next) => {
   const { id } = req.params;
   const { name } = req.body;
-  // console.log(name);
   try {
     const participant = await User.findOne({ name });
-    const event = await Event.findByIdAndUpdate(id, { $push: { participants: participant._id } });
-    // console.log(participant);
-    console.log(event);
+
+    if (!participant) {
+      req.flash('validation', 'User does not exist');
+      res.redirect(`/events/${id}/add`);
+      return;
+    }
+    await Event.findByIdAndUpdate(id, { $push: { participants: participant._id } });
+    res.redirect(`/events/${id}/add`);
   } catch (error) {
     next(error);
   }

@@ -4,11 +4,23 @@
 
 {{#each events}}
 <div>
-  <p>{{title}}</p>
-  <p>{{description}}</p>
-  <p>{{address}}</p>
-  <p>{{date}}</p>
-  <p>{{time}}</p>
+  <p>{{this.title}}</p>
+  <p>{{this.description}}</p>
+  <p>{{this.address}}</p>
+  <p>{{this.date}}</p>
+  <p>{{this.time}}</p>
   <a href="/events/{{_id}}/add">Add friends</a>
+</div>
+{{/each}}
+
+<h1>Upcoming events</h1>
+
+{{#each invitations}}
+<div>
+  <p>{{this.title}}</p>
+  <p>{{this.description}}</p>
+  <p>{{this.address}}</p>
+  <p>{{this.date}}</p>
+  <p>{{this.time}}</p>
 </div>
 {{/each}}

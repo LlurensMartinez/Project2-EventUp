@@ -33,6 +33,14 @@ const eventSchema = new Schema({
   participants: {
     type: [ObjectId],
     ref: 'User'
+  },
+  noParticipants: {
+    type: [ObjectId],
+    ref: 'User'
+  },
+  yesParticipants: {
+    type: [ObjectId],
+    ref: 'User'
   }
 });
 
