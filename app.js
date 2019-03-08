@@ -1,4 +1,5 @@
-// const createError = require('http-errors');
+
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -31,7 +32,7 @@ app.use(session({
 
 app.use(flash());
 
-mongoose.connect('mongodb://localhost/event-up', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
