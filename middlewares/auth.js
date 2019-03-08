@@ -34,8 +34,8 @@ module.exports = {
     next();
   },
   requireFieldsNewEvent (req, res, next) {
-    const { title, description, address, date, time } = req.body;
-    if (!title || !description || !address || !date || !time) {
+    const { title, description, address, dateEvent, time } = req.body;
+    if (!title || !description || !address || !dateEvent || !time) {
       req.flash('validation', 'You need to fill all the parameters');
       res.redirect(`/events${req.path}`);
     }

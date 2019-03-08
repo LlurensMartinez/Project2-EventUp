@@ -13,14 +13,22 @@
 </div>
 {{/each}}
 
-<h1>Upcoming events</h1>
+<h1>Invitations</h1>
 
 {{#each invitations}}
 <div>
   <p>{{this.title}}</p>
-  <p>{{this.description}}</p>
+  {{!-- <p>{{this.description}}</p>
   <p>{{this.address}}</p>
   <p>{{this.date}}</p>
-  <p>{{this.time}}</p>
+  <p>{{this.time}}</p> --}}
+  <form action="/events/invitations/{{_id}}" method="POST">
+  <input class="invitation-form-input" type="text" name="confirmation">
+  <button class="invitation-button-confirm" type="submit">Confirm</button>
+  <button class="invitation-button-reject" type="submit">Reject</button>
+  </form>
 </div>
 {{/each}}
+
+
+<script src="javascripts/events.js"></script>

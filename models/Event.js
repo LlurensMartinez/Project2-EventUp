@@ -22,10 +22,6 @@ const eventSchema = new Schema({
     type: Date,
     required: true
   },
-  time: {
-    type: Number,
-    required: true
-  },
   creator: {
     type: ObjectId,
     required: true
