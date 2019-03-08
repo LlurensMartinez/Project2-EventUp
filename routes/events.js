@@ -52,7 +52,6 @@ router.post('/:id/add', requireUser, async (req, res, next) => {
   // console.log(name);
   try {
     const participant = await User.findOne({ name });
-    console.log(participant._id);
     const event = await Event.findByIdAndUpdate(id, { $push: { participants: participant._id } });
     // console.log(participant);
     console.log(event);
