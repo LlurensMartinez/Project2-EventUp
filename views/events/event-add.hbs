@@ -1,0 +1,9 @@
+<h1>Add Friends</h1>
+
+<h2>{{event.title}}</h2>
+<p>{{event.description}}</p>
+
+<form action="/events/{{event._id}}/add" method="POST">
+  <input type="text" name="name" placeholder="name">
+  <button type="submit">Add</button>
+</form>

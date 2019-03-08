@@ -31,7 +31,8 @@ const eventSchema = new Schema({
     required: true
   },
   participants: {
-    type: [ObjectId]
+    type: [ObjectId],
+    ref: 'User'
   }
 });
 
