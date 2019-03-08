@@ -6,11 +6,14 @@ const { requireUser } = require('../middlewares/auth');
 /* GET users listing. */
 router.get('/friends', requireUser, async (req, res, next) => {
   const { name } = req.query;
+  const { _id } = req.session.currentUser;
   try {
     if (name) {
       var friend = await User.findOne({ name });
     }
-    res.render('user/friends', { friend });
+    const myFriends = await User.findById(_id).populate('friends');
+    console.log(myFriends);
+    res.render('user/friends', { friend, myFriends });
   } catch (error) {
     next(error);
   }
