@@ -1,7 +1,7 @@
 <h3>Pending</h3>
 <ul>
 {{#each participants}}
-<li>{{this}}</li>
+<li>{{this.name}}</li>
 {{/each}}
 </ul>
 
@@ -16,7 +16,7 @@
 
 <h3>Rejected</h3>
 <ul>
-{{#each rejections}}
+{{#each rejections.rejections}}
 <li>{{this}}</li>
 {{/each}}
 </ul>
