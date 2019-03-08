@@ -1,6 +1,6 @@
-<h1>Events</h1>
+<h2>Events</h2>
 
-<h2>My Events</h2>
+<h3>My Events</h3>
 
 {{#each events}}
 <div>
@@ -10,10 +10,11 @@
   <p>{{this.date}}</p>
   <p>{{this.time}}</p>
   <a href="/events/{{_id}}/add">Add friends</a>
+  <a href="/events/confirmations/{{_id}}">Status</a>
 </div>
 {{/each}}
 
-<h1>Invitations</h1>
+<h3>Invitations</h3>
 
 {{#each invitations}}
 <div>
@@ -29,6 +30,22 @@
   </form>
 </div>
 {{/each}}
+
+
+
+
+
+<h3>Upcoming Events</h3>
+<ul>
+{{#each confirmations}}
+  <li>{{this.title}}</li>
+</ul>
+{{/each}}
+
+
+
+
+
 
 
 <script src="javascripts/events.js"></script>

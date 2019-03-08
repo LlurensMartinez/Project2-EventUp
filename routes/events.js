@@ -11,7 +11,9 @@ router.get('/', requireUser, async (req, res, next) => {
   try {
     const events = await Event.find({ creator: _id });
     const invitations = await Event.find({ participants: _id });
-    res.render('events/events', { events, invitations });
+    const confirmations = await Event.find({ confirmations: _id });
+    const rejections = await Event.find({ rejections: _id });
+    res.render('events/events', { events, invitations, confirmations, rejections });
   } catch (error) {
     next(error);
   }
@@ -37,6 +39,16 @@ router.post('/new', requireUser, requireFieldsNewEvent, async (req, res, next) =
   }
 });
 
+router.get('/confirmations/:id', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const event = await Event.findById(id);
+    res.render('events/confirmations', event);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get('/:id/add', requireUser, async (req, res, next) => {
   const { id } = req.params;
   const data = {
@@ -57,11 +69,11 @@ router.post('/invitations/:id', requireUser, async (req, res, next) => {
   const { _id } = req.session.currentUser;
   try {
     if (confirmation === 'confirm') {
-      await Event.findByIdAndUpdate(id, { $push: { yesParticipants: _id } }, { new: true });
+      await Event.findByIdAndUpdate(id, { $push: { confirmations: _id } }, { new: true });
       await Event.findByIdAndUpdate(id, { $pull: { participants: _id } }, { new: true });
       res.redirect('/events');
     } else {
-      await Event.findByIdAndUpdate(id, { $push: { noParticipants: _id } }, { new: true });
+      await Event.findByIdAndUpdate(id, { $push: { rejections: _id } }, { new: true });
       await Event.findByIdAndUpdate(id, { $pull: { participants: _id } }, { new: true });
       res.redirect('/events');
     }

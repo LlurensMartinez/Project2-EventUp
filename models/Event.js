@@ -30,11 +30,11 @@ const eventSchema = new Schema({
     type: [ObjectId],
     ref: 'User'
   },
-  noParticipants: {
+  rejections: {
     type: [ObjectId],
     ref: 'User'
   },
-  yesParticipants: {
+  confirmations: {
     type: [ObjectId],
     ref: 'User'
   }
