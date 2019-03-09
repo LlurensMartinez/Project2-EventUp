@@ -70,13 +70,11 @@ router.post('/invitations/:id', requireUser, async (req, res, next) => {
   try {
     if (confirmation === 'confirm') {
       await Event.findByIdAndUpdate(id, { $push: { confirmations: _id } }, { new: true });
-      await Event.findByIdAndUpdate(id, { $pull: { participants: _id } }, { new: true });
-      res.redirect('/events');
     } else {
       await Event.findByIdAndUpdate(id, { $push: { rejections: _id } }, { new: true });
-      await Event.findByIdAndUpdate(id, { $pull: { participants: _id } }, { new: true });
-      res.redirect('/events');
     }
+    await Event.findByIdAndUpdate(id, { $pull: { participants: _id } }, { new: true });
+    res.redirect('/events');
   } catch (error) {
     next(error);
   }
@@ -89,11 +87,19 @@ router.post('/:id/add', requireUser, async (req, res, next) => {
   try {
     const participant = await User.findOne({ name });
     const user = await User.findById(_id).populate('friends');
+    const event = await Event.findById(id).populate('participants');
     let myFriend = false;
+    let isInvited = false;
     user.friends.forEach(friend => {
       if (friend.name === participant.name) {
         myFriend = true;
         return myFriend;
+      }
+    });
+    event.participants.forEach(friend => {
+      if (friend.name === participant.name) {
+        isInvited = true;
+        return isInvited;
       }
     });
     if (!participant) {
@@ -101,12 +107,12 @@ router.post('/:id/add', requireUser, async (req, res, next) => {
       res.redirect(`/events/${id}/add`);
       return;
     }
-    if (myFriend === true) {
+    if (myFriend && !isInvited) {
       await Event.findByIdAndUpdate(id, { $push: { participants: participant._id } });
       res.redirect(`/events/${id}/add`);
       return;
     }
-    req.flash('validation', 'User is not your friends');
+    req.flash('validation', 'User is already invited or not your friend');
     res.redirect(`/events/${id}/add`);
   } catch (error) {
     next(error);
