@@ -23,10 +23,10 @@ const userSchema = new Schema({
     type: String,
     required: true
   },
-  friends: {
-    type: [ObjectId],
+  friends: [{
+    type: ObjectId,
     ref: 'User'
-  }
+  }]
 });
 
 const User = mongoose.model('User', userSchema);

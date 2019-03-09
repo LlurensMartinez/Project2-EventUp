@@ -43,7 +43,6 @@ router.get('/confirmations/:id', async (req, res, next) => {
   const { id } = req.params;
   try {
     const event = await Event.findById(id).populate('participants').populate('confirmations').populate('rejections');
-    console.log(event);
     res.render('events/confirmations', event);
   } catch (error) {
     next(error);

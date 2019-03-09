@@ -14,9 +14,13 @@
 <button type="submit">Add</button>
 {{/if}}
 </form>
+{{> flash}}
 
+<h3>My Friends</h3>
 <ul>
   {{#each myFriends.friends}}
   <li>{{this.name}}</li>
   {{/each}}
 </ul>
+
+<a href="/">Back</a>
