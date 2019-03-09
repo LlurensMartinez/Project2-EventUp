@@ -39,7 +39,7 @@ router.post('/new', requireUser, requireFieldsNewEvent, async (req, res, next) =
   }
 });
 
-router.get('/confirmations/:id', async (req, res, next) => {
+router.get('/confirmations/:id', requireUser, async (req, res, next) => {
   const { id } = req.params;
   try {
     const event = await Event.findById(id).populate('participants').populate('confirmations').populate('rejections');
@@ -85,15 +85,28 @@ router.post('/invitations/:id', requireUser, async (req, res, next) => {
 router.post('/:id/add', requireUser, async (req, res, next) => {
   const { id } = req.params;
   const { name } = req.body;
+  const { _id } = req.session.currentUser;
   try {
     const participant = await User.findOne({ name });
-
+    const user = await User.findById(_id).populate('friends');
+    let myFriend = false;
+    user.friends.forEach(friend => {
+      if (friend.name === participant.name) {
+        myFriend = true;
+        return myFriend;
+      }
+    });
     if (!participant) {
       req.flash('validation', 'User does not exist');
       res.redirect(`/events/${id}/add`);
       return;
     }
-    await Event.findByIdAndUpdate(id, { $push: { participants: participant._id } });
+    if (myFriend === true) {
+      await Event.findByIdAndUpdate(id, { $push: { participants: participant._id } });
+      res.redirect(`/events/${id}/add`);
+      return;
+    }
+    req.flash('validation', 'User is not your friends');
     res.redirect(`/events/${id}/add`);
   } catch (error) {
     next(error);

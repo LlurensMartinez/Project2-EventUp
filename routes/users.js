@@ -26,11 +26,8 @@ router.post('/friends', requireUser, async (req, res, next) => {
   const { _id } = req.session.currentUser;
   try {
     const friend = await User.findOne({ name });
-    console.log(friend._id);
-    console.log(_id);
     const user = await User.findById(_id).populate('friends');
     var checked = false;
-    var me = false;
     user.friends.forEach(myFriend => {
       if (myFriend.name === friend.name) {
         checked = true;
