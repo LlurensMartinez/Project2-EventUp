@@ -1,4 +1,17 @@
 <h2>Messages</h2>
 
+{{#each messages}}
+<div>
+  <h4>From: {{this.creator.name}}</h4>
+  {{#each this.body}}
+  <p>Message: {{this.message}}</p>
+  {{/each}}
+</div>
+<a href="/messages/{{this._id}}/edit">Reply</a>
+<form action="/messages/delete/{{this._id}}" method="POST">
+  <button type="submit">Delete</button>
+</form>
+{{/each}}
+
 
 <a href="/messages/new">New Message</a>

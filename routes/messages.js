@@ -5,15 +5,29 @@ const Message = require('../models/Message');
 const { requireUser } = require('../middlewares/auth');
 
 router.get('/', requireUser, async (req, res, next) => {
-  // const { _id } = req.session.currentUser;
-  // try {
-  //   const messages = await Message.find({participant: _id})
-  // }
-  res.render('messages/messages');
+  const { _id } = req.session.currentUser;
+  try {
+    const messages = await Message.find({ participant: _id }).populate('creator');
+    console.log(messages);
+    res.render('messages/messages', { messages });
+  } catch (error) {
+    next(error);
+  }
 });
 
-router.get('/new', (req, res, next) => {
+router.get('/new', requireUser, (req, res, next) => {
   res.render('messages/message-new');
+});
+
+router.get('/:id/edit', requireUser, async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const message = await Message.findById(id);
+    console.log(message);
+    res.render('messages/message-edit', { message });
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.post('/new', requireUser, async (req, res, next) => {
@@ -22,13 +36,37 @@ router.post('/new', requireUser, async (req, res, next) => {
   try {
     const participant = await User.findOne({ name });
     const messageInfo = {
-      body: body,
-      participant: participant,
+      body: {
+        message: body
+      },
+      participant: participant._id,
       creator: _id
     };
     const message = await Message.create(messageInfo);
     console.log(message);
     res.redirect('/messages');
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post('/delete/:id', requireUser, async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    await Message.findByIdAndDelete(id);
+    res.redirect('/messages');
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.post('/:id/edit', requireUser, async (req, res, next) => {
+  const { id } = req.params;
+  const { message } = req.body;
+  try {
+    const messages = await Message.findByIdAndUpdate(id, { $push: { body: { message } } }, { new: true });
+    console.log(messages);
+    res.redirect(`/messages/${id}/edit`);
   } catch (error) {
     next(error);
   }

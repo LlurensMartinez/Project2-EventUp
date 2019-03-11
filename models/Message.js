@@ -6,13 +6,15 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
 const messageSchema = new Schema({
-
-  body: {
-    type: String
-  },
+  body: [{
+    message: {
+      type: String
+    }
+  }],
   creator: {
     type: ObjectId,
-    require: true
+    require: true,
+    ref: 'User'
   },
   participant: {
     type: ObjectId,
