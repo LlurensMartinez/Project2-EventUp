@@ -122,7 +122,7 @@ router.post('/:id/add', requireUser, async (req, res, next) => {
 
   if (name === req.session.currentUser.name) {
     req.flash('validation', 'You can not invite youserlf');
-    console.log('working');
+
     res.redirect(`/events/${id}/add`);
   }
   try {
