@@ -1,19 +1,24 @@
-<h2>New Event</h2>
+<div class="new-event-container">
+  <h2>New Event</h2>
 
-<form action="/events/new" method="POST" enctype="multipart/form-data">
-  <input type="text" name="title" placeholder="title">
-  <input type="text" name="description" placeholder="description">
-  <input type="text" name="address" placeholder="address">
-  <input type="date" name="dateEvent" placeholder="date">
-  <input type="time" name="time" placeholder="time">
+  <form action="/events/new" method="POST" enctype="multipart/form-data" class="form-event">
+    <div class="options-home">
+      <input type="text" name="title" placeholder="title">
+      <input type="text" name="description" placeholder="description">
+      <input type="text" name="address" placeholder="address">
+      <input type="date" name="dateEvent" placeholder="date">
+      <input type="time" name="time" placeholder="time">
 
-  <div>
-    <input type="file" name="image" placeholder="Upload a picture for the event">
-  </div>
+      <div>
+        <input type="file" name="image" placeholder="Upload a picture for the event">
+      </div>
 
-  <button type="submit">Create</button>
-</form>
+      <button type="submit">Create</button>
+    </div>
 
-{{> flash}}
+  </form>
 
-<a href="/">Back</a>
+  {{> flash}}
+
+  <a href="/">Back</a>
+</div>

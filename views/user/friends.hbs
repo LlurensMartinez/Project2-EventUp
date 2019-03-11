@@ -1,26 +1,28 @@
-<h2>Friends</h2>
+<div class="friends-container">
+  <h2>Friends</h2>
 
-<form action="/users/friends" method="GET">
-  <input type="text" name="name" placeholder="user name">
-  <button type="submit">Search</button>
-</form>
+  <form action="/users/friends" method="GET">
+    <input type="text" name="name" placeholder="user name">
+    <button type="submit">Search</button>
+  </form>
 
-<h4>{{friend.name}}</h4>
+  <h4>{{friend.name}}</h4>
 
 
-<form action="/users/friends" method="POST">
-<input type="text" name="name" value="{{friend.name}}">
-{{#if friend.name}}
-<button type="submit">Add</button>
-{{/if}}
-</form>
-{{> flash}}
+  <form action="/users/friends" method="POST">
+    <input type="text" name="name" value="{{friend.name}}">
+    {{#if friend.name}}
+    <button type="submit">Add</button>
+    {{/if}}
+  </form>
+  {{> flash}}
 
-<h3>My Friends</h3>
-<ul>
-  {{#each myFriends.friends}}
-  <li>{{this.name}}</li>
-  {{/each}}
-</ul>
+  <h3>My Friends</h3>
+  <ul>
+    {{#each myFriends.friends}}
+    <li>{{this.name}}</li>
+    {{/each}}
+  </ul>
 
-<a href="/">Back</a>
+  <a href="/">Back</a>
+</div>
