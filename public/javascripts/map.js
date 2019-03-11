@@ -14,12 +14,6 @@ const main = () => {
 
   const map = new mapboxgl.Map(mapOptions);
 
-  // if (!navigator.geolocation) {
-  //   console.log('Geolocation is not supported by your browser');
-  // } else {
-  //   navigator.geolocation.getCurrentPosition(hasLocation, error);
-  // }
-
   const latitude = latitudeP.innerText;
   const longitude = longitudeP.innerText;
   const coordinates = [longitude, latitude];
@@ -34,6 +28,7 @@ const main = () => {
     .setLngLat(coordinates)
     .addTo(map);
 
+  console.log(marker);
   map.setZoom(17);
 };
 

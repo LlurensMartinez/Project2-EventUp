@@ -13,6 +13,9 @@
     <div>
       <a href="/events/{{_id}}/add">Add friends</a>
       <a href="/events/confirmations/{{_id}}">Status</a>
+      <form action="/delete/{{_id}}" method="POST">
+        <button type="submit">Delete</button>
+      </form>
     </div>
   </div>
   {{/each}}
@@ -22,10 +25,6 @@
   {{#each invitations}}
   <div class="myEvents">
     <p>{{this.title}}</p>
-    {{!-- <p>{{this.description}}</p>
-  <p>{{this.address}}</p>
-  <p>{{this.date}}</p>
-  <p>{{this.time}}</p> --}}
     <form action="/events/invitations/{{_id}}" method="POST">
       <input class="invitation-form-input" type="text" name="confirmation">
       <div>
@@ -33,7 +32,7 @@
         <button class="invitation-button-reject" type="submit">Reject</button>
       </div>
     </form>
-    <a href="/events/info/{{_id}}">More info"</a>
+    <a href="/delete/{{_id}}">More info"</a>
   </div>
   {{/each}}
 

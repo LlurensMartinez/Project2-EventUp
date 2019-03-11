@@ -1,0 +1,11 @@
+<h2>Message Reply</h2>
+
+{{#each message.body}}
+<p>{{this.message}}</p>
+{{/each}}
+
+<form action="/messages/{{message._id}}/edit" method="POST">
+<label for="body">Message</label>
+<input type="text" name="message">
+<button type="submit">Send</button>
+</form>
