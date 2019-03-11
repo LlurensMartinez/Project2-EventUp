@@ -330,3 +330,7 @@ form .field.has-error input {
   width: 31%;
   height: auto;
 }
+#map {
+  width: 300px;
+  height: 200px;
+}

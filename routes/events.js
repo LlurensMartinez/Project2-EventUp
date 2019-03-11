@@ -8,12 +8,14 @@ const User = require('../models/User');
 const moment = require('moment');
 
 const parser = require('../helpers/file-upload');
+const axios = require('axios');
 
 router.get('/', requireUser, async (req, res, next) => {
   const { _id } = req.session.currentUser;
   try {
     const events = await Event.find({ creator: _id });
     const invitations = await Event.find({ participants: _id });
+    console.log(invitations);
     const confirmations = await Event.find({ confirmations: _id });
     const rejections = await Event.find({ rejections: _id });
     res.render('events/events', { events, invitations, confirmations, rejections });
@@ -51,6 +53,23 @@ router.post('/new', requireUser, requireFieldsNewEvent, parser.single('image'), 
     await Event.create(event);
     res.redirect('/');
     return;
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get('/info/:id', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const event = await Event.findById(id);
+    const address = encodeURIComponent(event.address);
+    const axiosCall = await axios(`https://api.opencagedata.com/geocode/v1/geojson?q=${address}&key=a13d1aa3e5c04193a98708915bca111a`);
+    const coordinates = {
+      longitude: axiosCall.data.features[0].geometry.coordinates[0],
+      latitude: axiosCall.data.features[0].geometry.coordinates[1]
+    };
+    console.log(coordinates);
+    res.render('events/information', { coordinates, event });
   } catch (error) {
     next(error);
   }
@@ -101,6 +120,12 @@ router.post('/:id/add', requireUser, async (req, res, next) => {
   const { id } = req.params;
   const { name } = req.body;
   const { _id } = req.session.currentUser;
+
+  if (name === req.session.currentUser.name) {
+    req.flash('validation', 'You can not invite youserlf');
+    console.log('working');
+    res.redirect(`/events/${id}/add`);
+  }
   try {
     const participant = await User.findOne({ name });
     const user = await User.findById(_id).populate('friends');
@@ -119,6 +144,7 @@ router.post('/:id/add', requireUser, async (req, res, next) => {
         return isInvited;
       }
     });
+
     if (!participant) {
       req.flash('validation', 'User does not exist');
       res.redirect(`/events/${id}/add`);
