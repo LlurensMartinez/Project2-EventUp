@@ -26,7 +26,11 @@ const userSchema = new Schema({
   friends: [{
     type: ObjectId,
     ref: 'User'
-  }]
+  }],
+  imageUrl: {
+    type: String,
+    default: 'https://res.cloudinary.com/mbcloud/image/upload/v1552227481/event-up-users/userDefault.png'
+  }
 });
 
 const User = mongoose.model('User', userSchema);
