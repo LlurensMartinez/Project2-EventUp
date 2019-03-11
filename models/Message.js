@@ -9,6 +9,13 @@ const messageSchema = new Schema({
   body: [{
     message: {
       type: String
+    },
+    messageCreator: {
+      type: String,
+      require: true
+    },
+    date: {
+      type: Date
     }
   }],
   creator: {
