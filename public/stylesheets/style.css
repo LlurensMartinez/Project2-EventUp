@@ -6,7 +6,8 @@
     }
     
     a {
-        color: #00B7FF;
+        color: rgb(181, 221, 236);
+        text-decoration: none;
     }
     
     body {
@@ -71,12 +72,6 @@
     
     .container {
         margin: 0 20px;
-    }
-    
-    .options-home {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
     }
     /* -- forms -- */
     
@@ -166,6 +161,12 @@
     form .field.has-error input {
         border: 1px solid red;
     }
+    /* Flash */
+    
+    .validation li {
+        list-style: none;
+        font-size: 17px;
+    }
     /* Layout hbs */
     
     .navbar div p {
@@ -182,6 +183,22 @@
     
     .new-event-container h2 {
         font-size: 3em;
+    }
+    /* Index */
+    
+    .menu-text {
+        margin-bottom: 2em;
+        margin-top: 2em;
+        text-decoration: none;
+        /* text-transform: uppercase; */
+        font-size: 1.50em;
+        background-color: rgb(12, 11, 11, 0.6);
+        color: white;
+        border: 2px solid white;
+        border-radius: 10px;
+        padding: 30px 50px 30px 50px;
+        width: 50%;
+        text-transform: uppercase;
     }
     /* Index No logs hbs */
     
@@ -211,6 +228,7 @@
         color: white;
         margin-top: 16%;
     }
+    /* Index logs */
     
     .home-main-div {
         height: 90%;
@@ -221,22 +239,46 @@
     
     .home-main-div h1 {
         font-size: 3em;
-        color: white;
+        color: black;
+        margin-top: 0;
     }
     
-    .menu-text {
-        margin-bottom: 2em;
-        margin-top: 2em;
+    .options-home {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .menu-text2 {
         text-decoration: none;
-        /* text-transform: uppercase; */
         font-size: 1.50em;
-        background-color: rgb(12, 11, 11, 0.6);
+        /* background-color: rgb(12, 11, 11, 0.6); */
         color: white;
         border: 2px solid white;
         border-radius: 10px;
         padding: 30px 50px 30px 50px;
-        width: 50%;
+        width: 100%;
+        height: 170px;
         text-transform: uppercase;
+    }
+    
+    .img {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 158px;
+    }
+    
+    .img1 {
+        background-image: url('/images/elevate-755076-unsplash.jpg');
+    }
+    
+    .img2 {
+        background-image: url('/images/friends.png');
+    }
+    
+    .img3 {
+        background-image: url('/images/elevate-755076-unsplash.jpg');
     }
     /* Login.hbs */
     
