@@ -19,7 +19,7 @@ const eventSchema = new Schema({
     required: true
   },
   date: {
-    type: Date,
+    type: String,
     required: true
   },
   creator: {
@@ -37,7 +37,10 @@ const eventSchema = new Schema({
   confirmations: [{
     type: ObjectId,
     ref: 'User'
-  }]
+  }],
+  imageUrl: {
+    type: String
+  }
 });
 
 const Event = mongoose.model('Event', eventSchema);

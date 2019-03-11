@@ -5,6 +5,9 @@ const router = express.Router();
 const { requireUser, requireFieldsNewEvent } = require('../middlewares/auth');
 const Event = require('../models/Event');
 const User = require('../models/User');
+const moment = require('moment');
+
+const parser = require('../helpers/file-upload');
 
 router.get('/', requireUser, async (req, res, next) => {
   const { _id } = req.session.currentUser;
@@ -26,14 +29,28 @@ router.get('/new', requireUser, (req, res, next) => {
   res.render('events/create-event', data);
 });
 
-router.post('/new', requireUser, requireFieldsNewEvent, async (req, res, next) => {
+router.post('/new', requireUser, requireFieldsNewEvent, parser.single('image'), async (req, res, next) => {
   const { title, description, address, dateEvent, time } = req.body;
-  const date = new Date(`${dateEvent} ${time}`);
-  const event = { title, description, address, date };
+
+  const dateModify = moment(new Date(`${dateEvent} ${time}`)).format('dddd, DD/MM/YYYY, h:mm a');
+  const date = dateModify;
+
+  let image = 'https://res.cloudinary.com/mbcloud/image/upload/v1552206295/event-up-events/party.png';
+  if (req.file !== undefined) {
+    image = req.file.url;
+  }
+  const event = {
+    title,
+    description,
+    address,
+    date,
+    imageUrl: image
+  };
   try {
     event.creator = req.session.currentUser._id;
     await Event.create(event);
     res.redirect('/');
+    return;
   } catch (error) {
     next(error);
   }

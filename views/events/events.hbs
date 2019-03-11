@@ -1,48 +1,53 @@
-<h2>Events</h2>
+<h2 class="events-h2">Events</h2>
+<div class="events-container">
+  <h3>My Events</h3>
 
-<h3>My Events</h3>
+  {{#each events}}
+  <div class="myEvents">
+    <img src="{{this.imageUrl}}" alt="picture" class="img-event">
+    <p>{{this.title}}</p>
+    <p>{{this.description}}</p>
+    <p>{{this.address}}</p>
+    <p>{{this.date}}</p>
+    <p>{{this.time}}</p>
+    <div>
+      <a href="/events/{{_id}}/add">Add friends</a>
+      <a href="/events/confirmations/{{_id}}">Status</a>
+    </div>
+  </div>
+  {{/each}}
 
-{{#each events}}
-<div>
-  <p>{{this.title}}</p>
-  <p>{{this.description}}</p>
-  <p>{{this.address}}</p>
-  <p>{{this.date}}</p>
-  <p>{{this.time}}</p>
-  <a href="/events/{{_id}}/add">Add friends</a>
-  <a href="/events/confirmations/{{_id}}">Status</a>
-</div>
-{{/each}}
+  <h3>Invitations</h3>
 
-<h3>Invitations</h3>
-
-{{#each invitations}}
-<div>
-  <p>{{this.title}}</p>
-  {{!-- <p>{{this.description}}</p>
+  {{#each invitations}}
+  <div class="myEvents">
+    <p>{{this.title}}</p>
+    {{!-- <p>{{this.description}}</p>
   <p>{{this.address}}</p>
   <p>{{this.date}}</p>
   <p>{{this.time}}</p> --}}
-  <form action="/events/invitations/{{_id}}" method="POST">
-  <input class="invitation-form-input" type="text" name="confirmation">
-  <button class="invitation-button-confirm" type="submit">Confirm</button>
-  <button class="invitation-button-reject" type="submit">Reject</button>
-  </form>
+    <form action="/events/invitations/{{_id}}" method="POST">
+      <input class="invitation-form-input" type="text" name="confirmation">
+      <div>
+        <button class="invitation-button-confirm" type="submit">Confirm</button>
+        <button class="invitation-button-reject" type="submit">Reject</button>
+      </div>
+    </form>
+  </div>
+  {{/each}}
+
+
+
+
+  <h3>Upcoming Events</h3>
+  <div class="myEvents">
+    <ul>
+      {{#each confirmations}}
+      <li>{{this.title}}</li>
+    </ul>
+    {{/each}}
+  </div>
 </div>
-{{/each}}
-
-
-
-
-
-<h3>Upcoming Events</h3>
-<ul>
-{{#each confirmations}}
-  <li>{{this.title}}</li>
-</ul>
-{{/each}}
-
-<a href="/">Back</a>
 
 
 

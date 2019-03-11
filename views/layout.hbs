@@ -1,22 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{title}}</title>
-    <meta charset="utf-8">
+
+<head>
+  <title>{{title}}</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans+Condensed:300" rel="stylesheet">
-  </head>
-  <body>
-    <h4>{{currentUser.name}}</h4>
-    
-    {{#if currentUser}}
-    <nav class="navbar">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans+Condensed:300" rel="stylesheet">
+</head>
+
+<body>
+
+  {{#if currentUser}}
+  <nav class="navbar">
+    <div>
+      <p>Welcome, {{currentUser.username}}!</p>
+    </div>
+    <div>
       <form action="/auth/logout" method="POST">
-      <button type="submit">Logout</button>
+        <button type="submit">Logout</button>
       </form>
-    </nav>
-    {{/if}}
-    {{{body}}}
-  </body>
+    </div>
+
+  </nav>
+  {{/if}}
+  
+
+  {{{body}}}
+  
+  
+</body>
+
+  {{#if currentUser}}
+  <nav class="navbarFooter">
+    <div class="navbarFooter-container">
+       <div>
+         <a href="/events/new"><img src="/images/addEventLogo.png" alt="Add event"></a>
+      
+        </div>
+        <div>
+          <a href="/users/friends"><img src="/images/iconFriends.png" alt="Friends"></a>
+      
+         </div>
+
+         <div>
+           <a href="/events"><img src="/images/eventos.png" alt="Events"></a>
+        </div>
+    </div>
+  </nav>
+  {{/if}}
+
+
 </html>
