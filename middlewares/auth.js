@@ -38,6 +38,7 @@ module.exports = {
     if (!title || !description || !address || !dateEvent || !time) {
       req.flash('validation', 'You need to fill all the parameters');
       res.redirect(`/events${req.path}`);
+      return;
     }
     next();
   }

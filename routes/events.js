@@ -31,9 +31,8 @@ router.get('/new', requireUser, (req, res, next) => {
   res.render('events/create-event', data);
 });
 
-router.post('/new', requireUser, requireFieldsNewEvent, parser.single('image'), async (req, res, next) => {
+router.post('/new', requireUser, parser.single('image'), requireFieldsNewEvent, async (req, res, next) => {
   const { title, description, address, dateEvent, time } = req.body;
-
   const dateModify = moment(new Date(`${dateEvent} ${time}`)).format('dddd, DD/MM/YYYY, h:mm a');
   const date = dateModify;
 
@@ -51,7 +50,7 @@ router.post('/new', requireUser, requireFieldsNewEvent, parser.single('image'), 
   try {
     event.creator = req.session.currentUser._id;
     await Event.create(event);
-    res.redirect('/');
+    res.redirect('/events');
     return;
   } catch (error) {
     next(error);
