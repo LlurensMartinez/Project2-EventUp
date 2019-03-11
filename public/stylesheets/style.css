@@ -1,4 +1,5 @@
     @import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+    @import url('https://fonts.googleapis.com/css?family=Montserrat');
     .img-event {
         width: 50px;
         height: 50px;
@@ -12,7 +13,7 @@
         margin: 0;
         padding: 0;
         color: #111;
-        font-family: Helvetica, Arial, sans-serif;
+        font-family: 'Montserrat', sans-serif;
         font-size: 16px;
         line-height: 147%;
         height: 100vh;
@@ -133,7 +134,7 @@
         color: white;
         font-size: 1.2em;
         font-weight: 100;
-        f
+        font-family: 'Montserrat', sans-serif;
     }
     /* WebKit */
     
@@ -195,11 +196,20 @@
         background-repeat: no-repeat;
     }
     
-    .index-main h1 {
+    .opacity {
+        background-color: rgb(12, 11, 11, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 100%;
+    }
+    
+    .opacity h1 {
         font-family: 'Kaushan Script', cursive;
-        font-size: 4em;
-        margin-bottom: 40%;
+        font-size: 5em;
+        margin-bottom: -5%;
         color: white;
+        margin-top: 16%;
     }
     
     .home-main-div {
@@ -220,25 +230,31 @@
         text-decoration: none;
         /* text-transform: uppercase; */
         font-size: 1.50em;
-        background-color: transparent;
+        background-color: rgb(12, 11, 11, 0.6);
         color: white;
         border: 2px solid white;
-        padding: 22px;
+        border-radius: 10px;
+        padding: 30px 50px 30px 50px;
+        width: 50%;
+        text-transform: uppercase;
     }
     /* Login.hbs */
     
     .container-login {
-        background-color: rgb(12, 11, 11, 0.3);
+        background-color: rgb(12, 11, 11, 0.5);
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        padding-bottom: 40px;
+        height: 100%;
     }
     
     .login-section h2 {
         font-size: 4em;
         color: white;
-        margin-bottom: 67%;
+        margin-bottom: 25%;
         font-family: 'Kaushan Script', cursive;
+        margin-bottom: 28px;
     }
     
     .login-form {
@@ -249,15 +265,6 @@
     }
     /* SignUp.hbs */
     
-    .signup-div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        align-content: center;
-        height: 100%;
-    }
-    
     .signup-form {
         display: flex;
         flex-direction: column;
@@ -265,8 +272,25 @@
         width: 100%;
     }
     
-    .signup-div h2 {
+    .container-login h2 {
         font-size: 4em;
+        color: white;
+        font-family: 'Kaushan Script', cursive;
+    }
+    
+    .submitButton {
+        color: white;
+        border: 1px solid rgb(239, 241, 241);
+        background: none;
+        font-size: 1.5em;
+        font-weight: 300;
+        padding: 10px 30px 10px 30px;
+        margin-top: 40px;
+        font-family: 'Montserrat', sans-serif;
+    }
+    
+    input {
+        outline: none;
     }
     /* friends.hbs */
     
