@@ -14,6 +14,7 @@ const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 const indexRouter = require('./routes/index');
 const eventsRouter = require('./routes/events');
+const deleteRouter = require('./routes/delete');
 const app = express();
 
 app.use(session({
@@ -57,6 +58,7 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/users', usersRouter);
 app.use('/events', eventsRouter);
+app.use('/delete', deleteRouter);
 
 // NOTE: requires a views/not-found.ejs template
 app.use((req, res, next) => {
