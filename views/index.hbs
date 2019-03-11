@@ -2,15 +2,20 @@
 
 <div class="home-main-div">
   <h1>HOME</h1>
-  <a href="/events/new">Create Event</a>
-  <a href="/users/friends">Friends</a>
-  <a href="/events">Events</a>
+  <div class="options-home">
+    <a href="/events/new" class="menu-text">Create Event</a>
+    <a href="/users/friends" class="menu-text">Friends</a>
+    <a href="/events" class="menu-text">Events</a>
+  </div>
 </div>
 {{else}}
 <div class="index-main">
   <h1>Event Up</h1>
-  <a class="index-login" href="/auth/login">Login</a>
-  <a class="index-signup" href="/auth/signup">Signup</a>
+  <div class="options-home">
+    <a class="index-login menu-text" href="/auth/login">Login</a>
+    <a class="index-signup menu-text" href="/auth/signup">Signup</a>
+  </div>
+
 </div>
 
 {{/if}}
