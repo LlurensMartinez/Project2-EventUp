@@ -8,8 +8,8 @@ router.get('/', requireUser, async (req, res, next) => {
   const { _id } = req.session.currentUser;
   try {
     const messages = await Message.find({ participant: _id }).populate('creator');
-    console.log(messages);
-    res.render('messages/messages', { messages });
+    const myMessages = await Message.find({ creator: _id }).populate('participant');
+    res.render('messages/messages', { messages, myMessages });
   } catch (error) {
     next(error);
   }
