@@ -15,3 +15,8 @@ html {
 .invitation-form-input {
   visibility: hidden;
 }
+
+#map {
+  width: 300px;
+  height: 200px;
+}

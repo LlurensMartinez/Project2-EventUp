@@ -10,7 +10,7 @@ router.get('/signup', requireAnon, (req, res, next) => {
   const data = {
     messages: req.flash('validation')
   };
-  res.render('auth/signup', data);
+  res.render('auth/signup', { data });
 });
 
 router.post('/signup', requireAnon, requireFieldsSignup, async (req, res, next) => {
