@@ -10,15 +10,17 @@
       <input class="new-event-input" type="time" name="time" placeholder="time">
 
       <div>
-        <input type="file" name="image" placeholder="Upload a picture for the event">
+        <input class="fileSelection" type="file" name="image" placeholder="Upload a picture for the event">
       </div>
-
+      <div class="newEventCreateBack">
       <button type="submit">Create</button>
+      <a href="/">Back</a>
+      </div>
     </div>
 
   </form>
 
   {{> flash}}
 
-  <a href="/">Back</a>
+  
 </div>

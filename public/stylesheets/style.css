@@ -59,7 +59,7 @@ h2 {
     padding-left: 40px;
     padding-right: 40px;
     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.75);
-    background-color: #d26859;
+    background-color: #4ABDAC;
 }
 
 .button-logout {
@@ -87,13 +87,6 @@ nav a {
 .form-event {
     display: flex;
     justify-content: center;
-    border: solid 1px black;
-    margin-top: 10%;
-    margin-left: 10%;
-    margin-right: 10%;
-    padding-top: 20px;
-    padding-bottom: 50px;
-    border-radius: 15px;
 }
 
 .button-event {
@@ -195,11 +188,14 @@ form .field.has-error input {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 90%;
+    height: 83%;
+    background-color: rgb(250, 245, 245);
 }
 
 .new-event-container h2 {
-    font-size: 3em;
+    font-size: 2.5em;
+    margin: 0px;
+    font-family: 'Kaushan Script', cursive;
 }
 
 .new-event-input {
@@ -212,6 +208,37 @@ form .field.has-error input {
     font-size: 1.2em;
     font-weight: 100;
     font-family: 'Montserrat', sans-serif;
+}
+
+.newEventCreateBack {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 77%;
+}
+
+.newEventCreateBack button {
+    text-transform: uppercase;
+    border: 2px solid #4ABDAC;
+    padding: 10px 25px;
+    background: none;
+    font-size: 1.2em;
+    color: #4ABDAC;
+    font-weight: 500;
+}
+
+.newEventCreateBack a {
+    text-transform: uppercase;
+    border: 2px solid #4ABDAC;
+    padding: 9px 30px;
+    font-size: 1.2em;
+    color: #4ABDAC;
+    font-weight: 500;
+}
+
+.fileSelection {
+    color: black;
 }
 
 
@@ -292,7 +319,7 @@ form .field.has-error input {
     text-align: center;
     text-decoration: none;
     font-size: 1.50em;
-    background-color: rgb(12, 11, 11, 0.5);
+    background-color: rgb(12, 11, 11, 0.2);
     color: white;
     border-radius: 10px;
     width: 100%;
@@ -337,7 +364,7 @@ form .field.has-error input {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding-bottom: 40px;
+    padding-bottom: 0px;
     height: 100%;
 }
 
@@ -457,7 +484,7 @@ input {
     right: 0;
     height: 50px;
     box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.75);
-    background-color: #d26859;
+    background-color: #4ABDAC;
 }
 
 .navbarFooter-container {
