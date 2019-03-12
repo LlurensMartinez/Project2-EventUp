@@ -1,14 +1,20 @@
 {{#if currentUser}}
 
 <div class="home-main-div">
-  <h1>HOME</h1>
+  {{!-- <h1>HOME</h1> --}}
   <div class="options-home">
-    <a href="/events/new" class="menu-text2 img img1">Create Event</a>
-    <a href="/users/friends" class="menu-text2 img img2">Friends</a>
-    <a href="/events" class="menu-text2 img img3">Events</a>
+    <div class="opacity-home img img1">
+    <a href="/events/new" class="menu-text2  ">Create Event</a>
+    </div>
+    <div class="opacity-home img img2">
+    <a href="/users/friends" class="menu-text2 ">Friends</a>
+    </div>
+    <div class="opacity-home img img3">
+    <a href="/events" class="menu-text2 ">Events</a>
+    </div>
+
   </div>
   <div>
-    <a href="/messages">Messages</a>
   
 </div>
 {{else}}
