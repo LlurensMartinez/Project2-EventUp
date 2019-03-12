@@ -77,7 +77,7 @@ router.post('/login', requireAnon, requireFieldsLogin, async (req, res, next) =>
   }
 });
 
-router.get('/facebook', passport.authenticate('facebook', { scope: 'email' }));
+router.get('/facebook', passport.authenticate('facebook'));
 
 router.get('/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),
