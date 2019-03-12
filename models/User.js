@@ -16,17 +16,32 @@ const userSchema = new Schema({
   },
   email: {
     type: String,
-    required: true,
     unique: true
   },
   password: {
     type: String,
-    required: true
+    required: () => this.facebook
+  },
+  facebook: {
+    type: Boolean,
+    default: false
+  },
+  token: {
+    type: String,
+    required: () => this.facebook
+  },
+  facebookId: {
+    type: String,
+    required: () => this.facebook
   },
   friends: [{
     type: ObjectId,
     ref: 'User'
-  }]
+  }],
+  imageUrl: {
+    type: String,
+    default: 'https://res.cloudinary.com/mbcloud/image/upload/v1552231082/event-up-events/clmegdwiztitevgptcwi.png'
+  }
 });
 
 const User = mongoose.model('User', userSchema);

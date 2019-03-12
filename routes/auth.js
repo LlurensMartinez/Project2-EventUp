@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const { requireAnon, requireFieldsSignup, requireFieldsLogin, requireUser } = require('../middlewares/auth');
+const passport = require('passport');
 
 const saltRounds = 10;
 
@@ -46,7 +47,7 @@ router.get('/login', requireAnon, (req, res, next) => {
   const data = {
     messages: req.flash('validation')
   };
-  res.render('auth/login', data);
+  res.render('auth/login', { data });
 });
 
 router.post('/login', requireAnon, requireFieldsLogin, async (req, res, next) => {
@@ -74,6 +75,19 @@ router.post('/login', requireAnon, requireFieldsLogin, async (req, res, next) =>
     next(error);
   }
 });
+
+router.get('/facebook', passport.authenticate('facebook'));
+
+router.get('/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  (req, res, next) => {
+    req.session.currentUser = req.user;
+    res.redirect('/');
+  });
+
+// router.get('/logic/facebook', async (req, res, next) => {
+//   console.log(app.locals.currentUser.displayName);
+// });
 
 router.post('/logout', requireUser, async (req, res, next) => {
   delete req.session.currentUser;

@@ -462,10 +462,6 @@ input {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-}
-
-.myEvents div a,
-.myEvents button {
     text-decoration: none;
     padding: 6px;
     font-weight: 300;
@@ -512,4 +508,37 @@ input {
 #map {
     width: 300px;
     height: 200px;
+}
+
+
+/**PROFILE**/
+
+.profile-form {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    padding-bottom: 15%;
+}
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border: solid 1px black;
+    border-radius: 50%;
+}
+
+.container-profile {
+    display: grid;
+    grid-template-columns: 55% auto;
+}
+
+.p-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.label-upload-file {
+    font-size: 12px;
 }

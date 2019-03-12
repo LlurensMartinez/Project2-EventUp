@@ -14,7 +14,7 @@
   {{#if currentUser}}
   <nav class="navbar">
     <div>
-      <p>Welcome, {{currentUser.username}}!</p>
+      <p>Welcome,<a href="/users/edit">{{currentUser.username}}</a></p>
     </div>
     <div class="navbar-div">
       <form action="/auth/logout" method="POST">
