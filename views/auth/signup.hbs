@@ -1,15 +1,16 @@
-<div class="signup-div">
-  <h2>Signup</h2>
-  <form class="singup-form" action="/auth/signup" method="POST">
+<div class="signup-div index-main">
+  <div class="container-login">
+  <h2>SignUp!</h2>
+  <form class="signup-form" action="/auth/signup" method="POST">
     <input type="text" name="name" placeholder="name" class="field">
     <input type="text" name="username" placeholder="username" class="field">
     <input type="text" name="email" placeholder="email" class="field">
     <input type="password" name="password" placeholder="password" class="field">
-
-    <button type="submit">Signup!</button>
+    {{> flash}}
+    <button class="submitButton" type="submit">SignUp!</button>
+    <a href="/">Back</a>
   </form>
 
-
-  {{> flash}}
+  </div>
+  
 </div>
-<a href="/">Back</a>

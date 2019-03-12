@@ -1,10 +1,16 @@
-<div class="login-div">
+<section class="index-main login-section">
+  <div class="container-login">
   <h2>Login</h2>
   <form action="/auth/login" method="POST" class="login-form">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button type="submit">Login</button>
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    {{>flash}}
+    <button class="submitButton" type="submit">Login</button>
   </form>
+  </div>
 
-{{>flash}}
-</div>
+</section>
+
+
+
+
