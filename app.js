@@ -9,7 +9,10 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const hbs = require('hbs');
-
+const passport = require('passport');
+const facebookConfiguration = require('./helpers/configuration');
+const FacebookStrategy = require('passport-facebook').Strategy;
+const User = require('./models/User');
 const authRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 const indexRouter = require('./routes/index');
@@ -39,6 +42,40 @@ mongoose.connect(process.env.MONGODB_URI, {
   reconnectTries: Number.MAX_VALUE
 });
 
+// Use the FacebookStrategy within Passport.
+
+passport.use(new FacebookStrategy(facebookConfiguration,
+  async (accessToken, refreshToken, profile, done) => {
+    try {
+      const user = await User.findOne({ facebookId: profile.id });
+      if (user) return done(null, user);
+
+      const newUser = {
+        username: profile.id,
+        name: profile.displayName,
+        facebook: true,
+        token: accessToken,
+        facebookId: profile.id
+      };
+
+      const createdUser = await User.create(newUser);
+      done(null, createdUser);
+    } catch (error) {
+      done(error);
+    }
+  }
+));
+
+// ------ Passport configuration ----
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -49,6 +86,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use((req, res, next) => {
   app.locals.currentUser = req.session.currentUser;

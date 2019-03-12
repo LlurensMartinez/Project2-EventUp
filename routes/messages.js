@@ -22,7 +22,7 @@ router.get('/new', requireUser, (req, res, next) => {
 router.get('/:id/edit', requireUser, async (req, res, next) => {
   const { id } = req.params;
   try {
-    const message = await Message.findById(id);
+    const message = await Message.findById(id).populate('creator').populate('messageCreator');
     console.log(message);
     res.render('messages/message-edit', { message });
   } catch (error) {
@@ -32,15 +32,18 @@ router.get('/:id/edit', requireUser, async (req, res, next) => {
 
 router.post('/new', requireUser, async (req, res, next) => {
   const { _id } = req.session.currentUser;
-  const { name, body } = req.body;
+  const { name, body, title } = req.body;
   try {
     const participant = await User.findOne({ name });
     const messageInfo = {
+      title: title,
       body: {
-        message: body
+        message: body,
+        messageCreator: req.session.currentUser.name
       },
       participant: participant._id,
-      creator: _id
+      creator: _id,
+      date: Date.now()
     };
     const message = await Message.create(messageInfo);
     console.log(message);
@@ -62,10 +65,14 @@ router.post('/delete/:id', requireUser, async (req, res, next) => {
 
 router.post('/:id/edit', requireUser, async (req, res, next) => {
   const { id } = req.params;
-  const { message } = req.body;
+  const { messages } = req.body;
+  const newMessage = {
+    message: messages,
+    messageCreator: req.session.currentUser.name
+  };
+  console.log(newMessage);
   try {
-    const messages = await Message.findByIdAndUpdate(id, { $push: { body: { message } } }, { new: true });
-    console.log(messages);
+    await Message.findByIdAndUpdate(id, { $push: { body: newMessage } }, { new: true });
     res.redirect(`/messages/${id}/edit`);
   } catch (error) {
     next(error);

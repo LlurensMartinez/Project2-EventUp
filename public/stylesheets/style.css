@@ -1,35 +1,38 @@
-.img-event{
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+.img-event {
   width: 50px;
   height: 50px;
 }
-
+    
 a {
-  color: #00B7FF;
+  color: rgb(181, 221, 236);
+  text-decoration: none;
 }
-
+    
 body {
   margin: 0;
   padding: 0;
   color: #111;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   line-height: 147%;
   height: 100vh;
   width: 100vw;
 }
-
+    
 html {
   box-sizing: border-box;
   height: 100vh;
   width: 100vw;
 }
-
+    
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
-
+    
 h1 {
   display: flex;
   justify-content: center;
@@ -69,12 +72,6 @@ nav a {
 
 .container {
   margin: 0 20px;
-}
-
-.options-home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 /* -- forms -- */
 
@@ -116,13 +113,25 @@ form label {
 }
 
 form input {
-  padding: 5px;
+  padding: 13px;
   font-size: 16px;
-  border: solid 1px black;
   margin-top: 10px;
   margin-bottom: 10px;
   width: 90%;
+  border: none;
+  /* border-radius: 10px; */
+  background: none;
+  border-bottom: 2px solid white;
+  color: white;
 }
+
+::-webkit-input-placeholder {
+  color: white;
+  font-size: 1.2em;
+  font-weight: 100;
+  font-family: 'Montserrat', sans-serif;
+}
+/* WebKit */
 
 .input-hour {
   width: 50%;
@@ -152,6 +161,12 @@ form .field.has-error label {
 form .field.has-error input {
   border: 1px solid red;
 }
+/* Flash */
+
+.validation li {
+  list-style: none;
+  font-size: 17px;
+}
 /* Layout hbs */
 
 .navbar div p {
@@ -169,6 +184,22 @@ form .field.has-error input {
 .new-event-container h2 {
   font-size: 3em;
 }
+/* Index */
+
+.menu-text {
+  margin-bottom: 2em;
+  margin-top: 2em;
+  text-decoration: none;
+  /* text-transform: uppercase; */
+  font-size: 1.50em;
+  background-color: rgb(12, 11, 11, 0.6);
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 30px 50px 30px 50px;
+  width: 50%;
+  text-transform: uppercase;
+}
 /* Index No logs hbs */
 
 .index-main {
@@ -176,7 +207,28 @@ form .field.has-error input {
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  background-image: url('/images/elevate-755085-unsplash.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
+
+.opacity {
+  background-color: rgb(12, 11, 11, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.opacity h1 {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 5em;
+  margin-bottom: -5%;
+  color: white;
+  margin-top: 16%;
+}
+/* Index logs */
 
 .home-main-div {
   height: 90%;
@@ -187,34 +239,64 @@ form .field.has-error input {
 
 .home-main-div h1 {
   font-size: 3em;
+  color: black;
+  margin-top: 0;
 }
 
-.menu-text {
-  color: #00B7FF;
-  margin-bottom: 2em;
-  margin-top: 2em;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-size: 1.50em;
-  background-color: #9B4BE3;
-  color: white;
-  text-align: center;
-  width: 65%;
-  padding: 15px 20px 15px 20px;
-  border-radius: 50px;
-}
-/* Login.hbs */
-
-.login-div {
+.options-home {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 90%;
 }
 
-.login-div h2 {
+.menu-text2 {
+  text-decoration: none;
+  font-size: 1.50em;
+  /* background-color: rgb(12, 11, 11, 0.6); */
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 30px 50px 30px 50px;
+  width: 100%;
+  height: 170px;
+  text-transform: uppercase;
+}
+
+.img {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 158px;
+}
+
+.img1 {
+  background-image: url('/images/elevate-755076-unsplash.jpg');
+}
+
+.img2 {
+  background-image: url('/images/friends.png');
+}
+
+.img3 {
+  background-image: url('/images/elevate-755076-unsplash.jpg');
+}
+/* Login.hbs */
+
+.container-login {
+  background-color: rgb(12, 11, 11, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-bottom: 40px;
+  height: 100%;
+}
+
+.login-section h2 {
   font-size: 4em;
+  color: white;
+  margin-bottom: 25%;
+  font-family: 'Kaushan Script', cursive;
+  margin-bottom: 28px;
 }
 
 .login-form {
@@ -225,15 +307,6 @@ form .field.has-error input {
 }
 /* SignUp.hbs */
 
-.signup-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  height: 100%;
-}
-
 .signup-form {
   display: flex;
   flex-direction: column;
@@ -241,8 +314,25 @@ form .field.has-error input {
   width: 100%;
 }
 
-.signup-div h2 {
+.container-login h2 {
   font-size: 4em;
+  color: white;
+  font-family: 'Kaushan Script', cursive;
+}
+
+.submitButton {
+  color: white;
+  border: 1px solid rgb(239, 241, 241);
+  background: none;
+  font-size: 1.5em;
+  font-weight: 300;
+  padding: 10px 30px 10px 30px;
+  margin-top: 40px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input {
+  outline: none;
 }
 /* friends.hbs */
 
@@ -325,16 +415,16 @@ form .field.has-error input {
   padding: 0;
   margin-top: 4px;
 }
-
+    
 .navbarFooter-container div a img {
   width: 31%;
   height: auto;
 }
+    
 #map {
   width: 300px;
   height: 200px;
 }
-
 /**PROFILE**/
 .profile-form{
   margin-left: 5%;

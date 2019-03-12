@@ -4,10 +4,11 @@
   <form action="/auth/login" method="POST" class="login-form">
     <input type="text" name="username" placeholder="Username">
     <input type="password" name="password" placeholder="Password">
+    {{>flash}}
     <button class="submitButton" type="submit">Login</button>
   </form>
   </div>
-{{>flash}}
+
 </section>
 
 
