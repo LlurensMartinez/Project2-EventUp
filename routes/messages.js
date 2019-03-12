@@ -32,10 +32,11 @@ router.get('/:id/edit', requireUser, async (req, res, next) => {
 
 router.post('/new', requireUser, async (req, res, next) => {
   const { _id } = req.session.currentUser;
-  const { name, body } = req.body;
+  const { name, body, title } = req.body;
   try {
     const participant = await User.findOne({ name });
     const messageInfo = {
+      title: title,
       body: {
         message: body,
         messageCreator: req.session.currentUser.name
@@ -71,8 +72,7 @@ router.post('/:id/edit', requireUser, async (req, res, next) => {
   };
   console.log(newMessage);
   try {
-    const messages = await Message.findByIdAndUpdate(id, { $push: { body: newMessage } }, { new: true });
-
+    await Message.findByIdAndUpdate(id, { $push: { body: newMessage } }, { new: true });
     res.redirect(`/messages/${id}/edit`);
   } catch (error) {
     next(error);
