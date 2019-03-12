@@ -295,7 +295,7 @@ form .field.has-error input {
 /* Index logs */
 
 .home-main-div {
-    height: 90%;
+    height: 85%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -312,8 +312,9 @@ form .field.has-error input {
 .options-home {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    height: 433px;
+    height: 96%;
 }
 
 .menu-text2 {
@@ -333,7 +334,7 @@ form .field.has-error input {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 145px;
+    height: 33%;
 }
 
 .img1 {
@@ -450,6 +451,7 @@ input {
 .events-h2 {
     margin-top: 15%;
     font-size: 3em;
+    font-family: 'Kaushan Script', cursive;
 }
 
 .myEvents {
@@ -467,9 +469,6 @@ input {
     font-weight: 300;
     font-size: 1.2em;
     color: #ffffff;
-    background-color: #1883ba;
-    border-radius: 6px;
-    border: 2px solid #0016b0;
 }
 
 
