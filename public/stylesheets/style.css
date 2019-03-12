@@ -343,11 +343,21 @@ form .field.has-error input {
   padding-bottom: 15%;
 }
 .profile-img{
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   border: solid 1px black;
   border-radius: 50%;
 }
 .container-profile{
   display: grid;
+  grid-template-columns: 55% auto;
+}
+.p-profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px; 
+}
+.label-upload-file{
+  font-size: 12px;
 }

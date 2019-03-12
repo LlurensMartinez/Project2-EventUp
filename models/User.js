@@ -29,7 +29,7 @@ const userSchema = new Schema({
   }],
   imageUrl: {
     type: String,
-    default: 'https://res.cloudinary.com/mbcloud/image/upload/v1552227481/event-up-users/userDefault.png'
+    default: 'https://res.cloudinary.com/mbcloud/image/upload/v1552231082/event-up-events/clmegdwiztitevgptcwi.png'
   }
 });
 

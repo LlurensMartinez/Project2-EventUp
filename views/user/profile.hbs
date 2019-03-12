@@ -1,22 +1,23 @@
-<form class="profile-form" action="/" method="POST" enctype="multipart/form-data">
+<form class="profile-form" action="/users/edit" method="POST" enctype="multipart/form-data">
 
   <div>
     <div class="container-profile">
       <img src="{{currentUser.imageUrl}}" alt="picture" class="profile-img">
-      <p>{{currentUser.username}}</p>
-      <label for="imageUrl"></label>
+      <p class="p-profile">{{currentUser.username}}</p>
+    </div>  
+      <label for="image"></label>
       
-      <input type="file" name="imageUrl" value="{{currentUser.imageUrl}}">
-    </div>
+      <input type="file" name="image" value="{{currentUser.imageUrl}}" class="label-upload-file">
+    
 
     <label for="name">Name</label>
     <input type="text" name="name" value="{{currentUser.name}}">
-    <label for="username">Username</label>
-    <input type="text" name="username" value="{{currentUser.username}}">
+    <label for="username"></label>
+    <input type="text" name="username" value="{{currentUser.username}}" hidden>
     <label for="email">Email</label>
     <input type="text" name="email" value="{{currentUser.email}}">
-    <label for="password">Password</label>
-    <input type="password" name="password" value="">
+    <label for="password"></label>
+    <input type="password" name="password" value="{{currentUser.password}}" hidden>
   </div>
 
   <button type="submit">Edit</button>

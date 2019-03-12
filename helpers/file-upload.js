@@ -15,15 +15,9 @@ const storage = cloudinaryStorage({
   folder: 'event-up-events',
   allowedFormats: ['jpg', 'png']
 });
-const storageUsers = cloudinaryStorage({
-  cloudinary,
-  folder: 'event-up-users',
-  allowedFormats: ['jpg', 'png']
-});
 
 const parser = multer({
   storage,
-  storageUsers,
   fileFilter: function (req, file, cb) {
     if (file.mimetype !== 'image/png' && file.mimetype !== 'image/jpeg') {
       req.fileValidationError = true;
