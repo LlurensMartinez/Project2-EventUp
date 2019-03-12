@@ -62,6 +62,7 @@ passport.use(new FacebookStrategy(facebookConfiguration,
       done(null, createdUser);
     } catch (error) {
       done(error);
+      console.log(error);
     }
   }
 ));
