@@ -7,7 +7,7 @@
     </div>  
       <label for="image"></label>
       
-      <input type="file" name="image" value="{{currentUser.imageUrl}}" class="label-upload-file">
+      <input type="file" name="image" value="{{currentUser.imageUrl}}" class="label-upload-file" capture>
     
 
     <label for="name">Name</label>
@@ -20,7 +20,10 @@
     <input type="password" name="password" value="{{currentUser.password}}" hidden>
   </div>
 
-  <button type="submit">Edit</button>
+  <div class="div-button">
+    <button type="submit">Edit</button>
+  </div>
+  
 
 
 
