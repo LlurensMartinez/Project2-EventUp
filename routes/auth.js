@@ -4,7 +4,6 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const { requireAnon, requireFieldsSignup, requireFieldsLogin, requireUser } = require('../middlewares/auth');
 const passport = require('passport');
-const app = express();
 
 const saltRounds = 10;
 
@@ -77,7 +76,7 @@ router.post('/login', requireAnon, requireFieldsLogin, async (req, res, next) =>
   }
 });
 
-router.get('/facebook', passport.authenticate('facebook', { scope: 'email' }));
+router.get('/facebook', passport.authenticate('facebook'));
 
 router.get('/facebook/callback',
   passport.authenticate('facebook', { failureRedirect: '/login' }),

@@ -3,22 +3,24 @@
 
   <form action="/events/new" method="POST" enctype="multipart/form-data" class="form-event">
     <div class="options-home">
-      <input type="text" name="title" placeholder="title">
-      <input type="text" name="description" placeholder="description">
-      <input type="text" name="address" placeholder="address">
-      <input type="date" name="dateEvent" placeholder="date">
-      <input type="time" name="time" placeholder="time">
+      <input class="new-event-input" type="text" name="title" placeholder="title">
+      <input  class="new-event-input" type="text" name="description" placeholder="description">
+      <input class="new-event-input" type="text" name="address" placeholder="address">
+      <input class="new-event-input" type="date" name="dateEvent" placeholder="date">
+      <input class="new-event-input" type="time" name="time" placeholder="time">
 
       <div>
-        <input type="file" name="image" placeholder="Upload a picture for the event">
+        <input class="fileSelection" type="file" name="image" placeholder="Upload a picture for the event">
       </div>
-
+      <div class="newEventCreateBack">
       <button type="submit">Create</button>
+      <a href="/">Back</a>
+      </div>
     </div>
 
   </form>
 
   {{> flash}}
 
-  <a href="/">Back</a>
+  
 </div>

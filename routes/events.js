@@ -6,6 +6,7 @@ const { requireUser, requireFieldsNewEvent } = require('../middlewares/auth');
 const Event = require('../models/Event');
 const User = require('../models/User');
 const moment = require('moment');
+const data = require('../helpers/email');
 
 const parser = require('../helpers/file-upload');
 const axios = require('axios');
@@ -104,11 +105,11 @@ router.post('/invitations/:id', requireUser, async (req, res, next) => {
   const { _id } = req.session.currentUser;
   try {
     if (confirmation === 'confirm') {
-      await Event.findByIdAndUpdate(id, { $push: { confirmations: _id } }, { new: true });
+      await Event.findByIdAndUpdate(id, { $push: { confirmations: _id } });
     } else {
-      await Event.findByIdAndUpdate(id, { $push: { rejections: _id } }, { new: true });
+      await Event.findByIdAndUpdate(id, { $push: { rejections: _id } });
     }
-    await Event.findByIdAndUpdate(id, { $pull: { participants: _id } }, { new: true });
+    await Event.findByIdAndUpdate(id, { $pull: { participants: _id } });
     res.redirect('/events');
   } catch (error) {
     next(error);
@@ -151,6 +152,7 @@ router.post('/:id/add', requireUser, async (req, res, next) => {
     }
     if (myFriend && !isInvited) {
       await Event.findByIdAndUpdate(id, { $push: { participants: participant._id } });
+      data.sendEmail(participant.email);
       res.redirect(`/events/${id}/add`);
       return;
     }

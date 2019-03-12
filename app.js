@@ -18,6 +18,7 @@ const usersRouter = require('./routes/users');
 const indexRouter = require('./routes/index');
 const eventsRouter = require('./routes/events');
 const deleteRouter = require('./routes/delete');
+const emailRouter = require('./routes/email');
 const messagesRouter = require('./routes/messages');
 const app = express();
 
@@ -62,6 +63,7 @@ passport.use(new FacebookStrategy(facebookConfiguration,
       done(null, createdUser);
     } catch (error) {
       done(error);
+      console.log(error);
     }
   }
 ));
@@ -101,6 +103,7 @@ app.use('/users', usersRouter);
 app.use('/events', eventsRouter);
 app.use('/delete', deleteRouter);
 app.use('/messages', messagesRouter);
+app.use('/email', emailRouter);
 
 // NOTE: requires a views/not-found.ejs template
 app.use((req, res, next) => {

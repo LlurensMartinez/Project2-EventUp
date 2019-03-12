@@ -16,9 +16,9 @@
     <div>
       <p>Welcome,<a href="/users/edit">{{currentUser.username}}</a></p>
     </div>
-    <div>
+    <div class="navbar-div">
       <form action="/auth/logout" method="POST">
-        <button type="submit">Logout</button>
+        <button class="button-logout"type="submit">Logout</button>
       </form>
     </div>
 
@@ -45,6 +45,10 @@
 
          <div>
            <a href="/events"><img src="/images/eventos.png" alt="Events"></a>
+        </div>
+        
+        <div>
+           <a href="/messages"><img src="/images/sobre.png" alt="Events"></a>
         </div>
     </div>
   </nav>
