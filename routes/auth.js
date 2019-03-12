@@ -4,7 +4,6 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const { requireAnon, requireFieldsSignup, requireFieldsLogin, requireUser } = require('../middlewares/auth');
 const passport = require('passport');
-const app = express();
 
 const saltRounds = 10;
 
