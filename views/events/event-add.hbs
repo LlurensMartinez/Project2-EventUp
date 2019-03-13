@@ -4,11 +4,14 @@
   <p>{{event.description}}</p>
   <form action="/events/{{event._id}}/add" method="POST">
     <input type="text" name="name" placeholder="name">
-    <button type="submit">Add</button>
+    <button type="submit">
+      <i id="add-friend-btn" class="fas fa-plus-circle"></i>
+    </button>
   </form>
-  {{!-- {{#each event.particitpants}}
-    <p>{{this.name}}</p>
-  {{/each}} --}}
   {{> flash}}
+  <h3>Participants</h3>
+  {{#each event.participants}}
+    <p>{{this.name}}</p>
+  {{/each}}
   <a href="/events">Back</a>
 </section>

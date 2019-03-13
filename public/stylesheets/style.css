@@ -925,8 +925,33 @@ button {
 
 /* ---------- EVENT ADD FRIENDS ----------- */
 
+.event-add-friends-main {
+    text-align: center;
+}
 
-.event-add-friends-main H2 {
+
+.event-add-friends-main h2 {
     font-family: 'Kaushan Script', sans-serif;
     font-size: 2.5em; 
+}
+
+
+.event-add-friends-main h3 {
+    padding-top: 50px;
+}
+
+.event-add-friends-main form {
+    display: flex;
+}
+
+.event-add-friends-main input {
+    color: black;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    width: 200px;
+    margin: 0 10px 0 80px;
+}
+
+#add-friend-btn {
+    font-size: 2em;
+    margin-top: 15px;
 }
