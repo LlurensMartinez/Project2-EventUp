@@ -22,20 +22,20 @@
   </div>
 
   <hr class="hr-friends">
-
-  <h3>My Friends</h3>
   <ul>
     {{#each myFriends.friends}}
     <div class="friends-detail">
       <img src="{{this.imageUrl}}" alt="picture">
       <div class="friends-list">
         <li>{{this.name}}</li>
-        <a href="">More Details</a>
+        <a id="moreDetails" href="">More Details</a>
       </div>
     </div>
 
     {{/each}}
   </ul>
-
-  <a href="/">Back</a>
+  <div class="contanierBack">
+  <a  href="/">Back</a>
+  </div>
 </div>
+  

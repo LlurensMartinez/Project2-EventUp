@@ -13,10 +13,10 @@
     <p><strong>Date:</strong> {{this.date}}</p>
     <p><strong></strong> {{this.time}}</p>
     <div>
-      <a href="/events/{{_id}}/add">Add friends</a>
-      <a href="/events/confirmations/{{_id}}">Status</a>
+      <a href="/events/{{_id}}/add"><i class="fas fa-plus"></i></a>
+      <a href="/events/confirmations/{{_id}}"><i class="fas fa-info-circle"></i></i></a>
       <form action="/delete/{{_id}}" method="POST">
-        <button type="submit">Delete</button>
+        <button type="submit"><i class="far fa-trash-alt"></i></button>
       </form>
     </div>
   </div>
