@@ -1,35 +1,32 @@
-<h2>Messages</h2>
-
-{{#each myMessages}}
-  <div>
-    <h4>With: {{this.participant.name}}</h4>
-    {{#each this.body}}
-      <p>{{this.message}}</p>
-      <h4>by {{this.messageCreator}}</h4>
-    {{/each}}
+<section class="messages-display-main">
+  <h2>Messages</h2>
+  {{#each myMessages}}
+  <div class="main-message-display-container">
+    <div class="message-title-container">
+      <h4><i class="fas fa-user-friends"></i> {{this.participant.name}}</h4>
+      <h4><i class="fas fa-comment"></i> {{this.title}}</h4>
+    </div>
+    <div class="message-buttons-container">
+      <form action="/messages/delete/{{this._id}}" method="POST">
+        <button type="submit">
+            <i class="fas fa-ban"></i>
+        </button>
+      </form>
+      <a href="/messages/{{this._id}}/edit">
+        <i class="fas fa-reply"></i>
+      </a>
+    </div>
   </div>
-  <a href="/messages/{{this._id}}/edit">Reply</a>
-  <form action="/messages/delete/{{this._id}}" method="POST">
-    <button type="submit">Delete</button>
-  </form>
-{{/each}}
-
-{{#each messages}}
-  <div>
-    <h4>From: {{this.creator.name}}</h4>
-    {{#each this.body}}
-    <p>{{this.message}}</p>
-    <h4>by {{this.messageCreator}}</h4>
-    {{/each}}
-  </div>
-  <a href="/messages/{{this._id}}/edit">Reply</a>
-  <form action="/messages/delete/{{this._id}}" method="POST">
-    <button type="submit">Delete</button>
-  </form>
-{{/each}}
-
-
-
-
-<a href="/messages/new">New Message</a>
-<a href="/">Back</a>
+  {{/each}}
+  {{#each messages}}
+    <div>
+      <h4>From: {{this.creator.name}}</h4>
+    </div>
+    <a href="/messages/{{this._id}}/edit">Reply</a>
+    <form action="/messages/delete/{{this._id}}" method="POST">
+      <button type="submit">Delete</button>
+    </form>
+  {{/each}}
+  <a href="/messages/new">New Message</a>
+  <a href="/">Back</a>
+</section>
