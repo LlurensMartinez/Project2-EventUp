@@ -4,12 +4,14 @@
 
   {{#each events}}
   <div class="myEvents">
-    <img src="{{this.imageUrl}}" alt="picture" class="img-event">
-    <p>{{this.title}}</p>
-    <p>{{this.description}}</p>
-    <p>{{this.address}}</p>
-    <p>{{this.date}}</p>
-    <p>{{this.time}}</p>
+    <div class="img-event">
+    <img src="{{this.imageUrl}}" alt="picture" >
+    </div>
+    <p><strong>Title:</strong> {{this.title}}</p>
+    <p><strong>Description:</strong> {{this.description}}</p>
+    <p><strong>Adress:</strong> {{this.address}}</p>
+    <p><strong>Date:</strong> {{this.date}}</p>
+    <p><strong></strong> {{this.time}}</p>
     <div>
       <a href="/events/{{_id}}/add">Add friends</a>
       <a href="/events/confirmations/{{_id}}">Status</a>
@@ -23,16 +25,18 @@
   <h3>Invitations</h3>
 
   {{#each invitations}}
-  <div class="myEvents">
-    <p>{{this.title}}</p>
+  <div class="myInvitations">
+    <div class="titleMoreInfoInvitations">
+    <p><strong>Title: </strong>{{this.title}}</p>
+    <a href="/delete/{{_id}}">More info</a>
+    </div>
     <form action="/events/invitations/{{_id}}" method="POST">
-      <input class="invitation-form-input" type="text" name="confirmation">
-      <div>
-        <button class="invitation-button-confirm" type="submit">Confirm</button>
-        <button class="invitation-button-reject" type="submit">Reject</button>
-      </div>
+        <input class="invitation-form-input" type="text" name="confirmation">
+        <button class="invitation-button-confirm" type="submit"><i id="confirm" class="far fa-check-circle"></i></button>
+        <button class="invitation-button-reject" type="submit"><i id="reject" class="fas fa-ban"></i></button>
+      
     </form>
-    <a href="/delete/{{_id}}">More info"</a>
+    
   </div>
   {{/each}}
 
@@ -40,16 +44,14 @@
 
 
   <h3>Upcoming Events</h3>
-  <div class="myEvents">
-    <ul>
+  <div class="myInvitations" style="margin-bottom: 90px;">  
       {{#each confirmations}}
-      <li>{{this.title}}</li>
-    </ul>
-    <a href="/events/info/{{_id}}">More info"</a>
-    {{/each}}
+        <p>{{this.title}}</p> 
+         <a href="/events/info/{{_id}}">More info"</a>
+        {{/each}}
   </div>
+   
 </div>
-
 
 
 

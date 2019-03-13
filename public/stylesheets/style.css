@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-.img-event {
-    width: 50px;
-    height: 50px;
-}
+/* @import url('https://fonts.googleapis.com/css?family=Kaushan+Script'); */
+
+
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat'); */
 
 a {
     color: rgb(181, 221, 236);
@@ -417,6 +415,10 @@ input {
     outline: none;
 }
 
+button {
+    outline: none;
+}
+
 
 /* friends.hbs */
 
@@ -445,19 +447,33 @@ input {
 }
 
 .events-container h3 {
+    text-transform: uppercase;
     text-align: center;
 }
 
 .events-h2 {
-    margin-top: 15%;
-    font-size: 3em;
+    margin: 11%;
+    font-size: 3.5em;
     font-family: 'Kaushan Script', cursive;
 }
 
 .myEvents {
-    background-color: rgb(237, 233, 233);
     width: 90%;
-    padding: 20px;
+    margin: 5% 0%;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    padding: 2%;
+}
+
+.events-container h3 {
+    font-size: 2em;
+    /* border-bottom: 2px solid black;
+    padding-bottom: 10px; */
+}
+
+.myEvents p {
+    font-size: 1.2em;
 }
 
 .myEvents div {
@@ -465,23 +481,108 @@ input {
     flex-direction: row;
     justify-content: space-around;
     text-decoration: none;
-    padding: 6px;
     font-weight: 300;
     font-size: 1.2em;
-    color: #ffffff;
+    width: 100%;
+}
+
+.myEvents div a {
+    text-align: center;
+    color: #4ABDAC;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    border: 2px solid #4ABDAC;
+    padding: 5px 10px 5px 10px;
+    width: 36%;
+}
+
+.myEvents div form button {
+    font-size: 0.7em;
+    text-transform: uppercase;
+    border: 2px solid#4ABDAC;
+    padding: 5px 10px 5px 10px;
+    background: none;
+    height: 40px;
+    color: #4ABDAC;
+}
+
+.img-event {
+    height: 150px;
+}
+
+.img-event img {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.myInvitations {
+    width: 89%;
+    height: 70px;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    margin-bottom: 6%;
+}
+
+.myInvitations form {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+    padding-left: 48px;
+    margin-bottom: 7%;
+    ;
+}
+
+.titleMoreInfoInvitations {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.titleMoreInfoInvitations p {
+    margin: 6px;
+}
+
+.titleMoreInfoInvitations a {
+    color: #4ABDAC;
+}
+
+#confirm {
+    color: green;
+    font-size: 3em;
+}
+
+#reject {
+    color: #CC0000;
+    font-size: 3em;
+}
+
+#white {
+    background: red;
+    height: 500px;
+    width: 100%;
+    margin-top: 50px;
 }
 
 
 /* Nav bar footer */
 
 .navbarFooter {
-  position: fixed;
-  top: 93vh;
-  left: 0;
-  right: 0;
-  height: 50px;
-  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.75);
-  background-color: #4ABDAC;
+    position: fixed;
+    top: 93vh;
+    left: 0;
+    right: 0;
+    height: 50px;
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    background-color: #4ABDAC;
 }
 
 .navbarFooter-container {
@@ -511,36 +612,41 @@ input {
 
 
 /**PROFILE**/
-.profile-form{
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-top: 5%;
-  padding-bottom: 15%;
-  
-  /* background: url('/images/profile.jpg');
+
+.profile-form {
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 5%;
+    padding-bottom: 15%;
+    /* background: url('/images/profile.jpg');
   background-repeat: no-repeat;
   background-size: cover; */
 }
-.profile-form input{
-  color: black;
-  border-bottom: 2px solid black;
+
+.profile-form input {
+    color: black;
+    border-bottom: 2px solid black;
 }
-.profile-img{
-  width: 180px;
-  height: 180px;
-  border: solid 1px black;
-  border-radius: 50%;
+
+.profile-img {
+    width: 180px;
+    height: 180px;
+    border: solid 1px black;
+    border-radius: 50%;
 }
-.container-profile{
-  display: grid;
-  grid-template-columns: 55% auto;
+
+.container-profile {
+    display: grid;
+    grid-template-columns: 55% auto;
 }
-.p-profile{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px; 
+
+.p-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
 }
-.label-upload-file{
-  font-size: 11px;
+
+.label-upload-file {
+    font-size: 11px;
 }
