@@ -19,14 +19,30 @@
   </div>
   {{/each}}
   {{#each messages}}
-    <div>
-      <h4>From: {{this.creator.name}}</h4>
+  <div class="main-message-display-container">
+    <div class="message-title-container">
+      <h4><i class="fas fa-user-friends"></i> {{this.creator.name}}</h4>
+      <h4><i class="fas fa-comment"></i> {{this.title}}</h4>
     </div>
-    <a href="/messages/{{this._id}}/edit">Reply</a>
-    <form action="/messages/delete/{{this._id}}" method="POST">
-      <button type="submit">Delete</button>
-    </form>
+    <div class="message-buttons-container">
+      <form action="/messages/delete/{{this._id}}" method="POST">
+        <button type="submit">
+            <i class="fas fa-ban"></i>
+        </button>
+      </form>
+      <a href="/messages/{{this._id}}/edit">
+        <i class="fas fa-reply"></i>
+      </a>
+    </div>
+  </div>
   {{/each}}
-  <a href="/messages/new">New Message</a>
-  <a href="/">Back</a>
+  <div id="messages-new-message">
+    <a href="/">
+      <i class="fas fa-arrow-circle-left"></i>
+    </a>
+    <a  href="/messages/new">
+      <i class="fas fa-plus-circle"></i>
+    </a>
+  </div>
 </section>
+
