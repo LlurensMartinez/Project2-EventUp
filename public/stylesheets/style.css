@@ -567,6 +567,7 @@ input {
 
 .main-message-display-container h4 {
     margin: 0;
+    font-weight: 400;
 }
 
 .message-buttons-container {
@@ -577,6 +578,7 @@ input {
 .fa-ban {
     font-size: 20px;
     color: #cc0000;
+
 }
 
 .fa-reply {
