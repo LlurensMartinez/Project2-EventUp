@@ -5,13 +5,13 @@
   {{#each events}}
   <div class="myEvents">
     <div class="img-event">
-    <img src="{{this.imageUrl}}" alt="picture" >
+      <img src="{{this.imageUrl}}" alt="picture" >
     </div>
-    <p><strong>Title:</strong> {{this.title}}</p>
-    <p><strong>Description:</strong> {{this.description}}</p>
-    <p><strong>Adress:</strong> {{this.address}}</p>
-    <p><strong>Date:</strong> {{this.date}}</p>
-    <p><strong></strong> {{this.time}}</p>
+      <p><strong>Title:</strong> {{this.title}}</p>
+      <p><strong>Description:</strong> {{this.description}}</p>
+      <p><strong>Adress:</strong> {{this.address}}</p>
+      <p><strong>Date:</strong> {{this.date}}</p>
+      <p><strong></strong> {{this.time}}</p>
     <div>
       <a href="/events/{{_id}}/add">Add friends</a>
       <a href="/events/confirmations/{{_id}}">Status</a>
@@ -35,21 +35,16 @@
         <button class="invitation-button-confirm" type="submit"><i id="confirm" class="far fa-check-circle"></i></button>
         <button class="invitation-button-reject" type="submit"><i id="reject" class="fas fa-ban"></i></button>  
     </form>
-    
   </div>
   {{/each}}
-
-
-
-
+  
   <h3>Upcoming Events</h3>
   <div class="myInvitations" style="margin-bottom: 90px;">  
-      {{#each confirmations}}
-        <p>{{this.title}}</p> 
-         <a href="/events/info/{{_id}}">More info"</a>
-        {{/each}}
-  </div>
-   
+    {{#each confirmations}}
+      <p>{{this.title}}</p> 
+      <a href="/events/info/{{_id}}">More info"</a>
+    {{/each}}
+  </div>  
 </div>
 
 

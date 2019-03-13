@@ -922,3 +922,11 @@ button {
     margin-top: 30px;
 }
 
+
+/* ---------- EVENT ADD FRIENDS ----------- */
+
+
+.event-add-friends-main H2 {
+    font-family: 'Kaushan Script', sans-serif;
+    font-size: 2.5em; 
+}

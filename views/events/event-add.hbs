@@ -1,13 +1,14 @@
-<h1>Add Friends</h1>
-
-<h2>{{event.title}}</h2>
-<p>{{event.description}}</p>
-
-<form action="/events/{{event._id}}/add" method="POST">
-  <input type="text" name="name" placeholder="name">
-  <button type="submit">Add</button>
-</form>
-
-{{> flash}}
-
-<a href="/events">Back</a>
+<section class="event-add-friends-main">
+  <h2>Add Friends</h2>
+  <h3>{{event.title}}</h3>
+  <p>{{event.description}}</p>
+  <form action="/events/{{event._id}}/add" method="POST">
+    <input type="text" name="name" placeholder="name">
+    <button type="submit">Add</button>
+  </form>
+  {{!-- {{#each event.particitpants}}
+    <p>{{this.name}}</p>
+  {{/each}} --}}
+  {{> flash}}
+  <a href="/events">Back</a>
+</section>
