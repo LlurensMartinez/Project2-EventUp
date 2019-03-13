@@ -1,28 +1,39 @@
 <div class="friends-container">
-  <h2>Friends</h2>
+  <div class="friends-search">
+    <h2>Friends</h2>
 
-  <form action="/users/friends" method="GET">
-    <input type="text" name="name" placeholder="user name">
-    <button type="submit">Search</button>
-  </form>
+    <form action="/users/friends" method="GET">
+      <input type="text" name="name" placeholder="user name" class="friends-input">
+      <button type="submit">Search</button>
+    </form>
 
+    <div>
+      <form action="/users/friends" method="POST" class="friends-add">
+        {{#if friend.name}}
+        <img src="{{friend.imageUrl}}">
+        <input type="text" name="name" value="{{friend.name}}" class="friends-add-input">
 
-  <img src="{{friend.imageUrl}}" alt="picture" class="profile-img">
-  <h4>{{friend.name}}</h4>
+        <button type="submit">Add</button>
+        {{/if}}
+      </form>
+    </div>
 
+    {{> flash}}
+  </div>
 
-  <form action="/users/friends" method="POST">
-    <input type="text" name="name" value="{{friend.name}}">
-    {{#if friend.name}}
-    <button type="submit">Add</button>
-    {{/if}}
-  </form>
-  {{> flash}}
+  <hr class="hr-friends">
 
   <h3>My Friends</h3>
   <ul>
     {{#each myFriends.friends}}
-    <li>{{this.name}}</li>
+    <div class="friends-detail">
+      <img src="{{this.imageUrl}}" alt="picture">
+      <div class="friends-list">
+        <li>{{this.name}}</li>
+        <a href="">More Details</a>
+      </div>
+    </div>
+
     {{/each}}
   </ul>
 
