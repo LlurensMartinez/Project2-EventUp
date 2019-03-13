@@ -685,3 +685,38 @@ input {
 
 /* -------------- NEW MESSAGE ------------- */
 
+.new-message-main-container input::placeholder {
+    color: rgb(24, 22, 22);
+    font-size: 1.2em;
+    font-weight: 100;
+    font-family: 'Montserrat', sans-serif;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    
+}
+
+.new-message-main-container h2 {
+    font-family: 'Kaushan Script', sans-serif;
+    font-size: 2.5em;
+}
+
+.new-message-main-container input{
+    margin-left: 10px;
+}
+
+.new-message-main-container form {
+    margin-top: 60px;
+}
+
+.new-message-main-container button {
+    text-transform: uppercase;
+    border: 2px solid #4ABDAC;
+    padding: 10px 25px;
+    background: none;
+    font-size: 1.2em;
+    color: #4ABDAC;
+    font-weight: 500;
+    border-radius: 10px;
+    margin-left: 130px;
+    margin-top: 30px;
+}
+
