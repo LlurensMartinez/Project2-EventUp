@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel='stylesheet' href='/stylesheets/style.css' />
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script%7CMontserrat:400,700" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Kaushan+Script|Montserrat:400,700" rel="stylesheet">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>
@@ -16,46 +17,48 @@
 
   {{#if currentUser}}
   <nav class="navbar">
-    <div>
-      <p>Welcome,<a href="/users/edit">{{currentUser.name}}</a></p>
+
+    <div class="navbar-profile">
+      <a href="/users/edit"><img src="{{currentUser.imageUrl}}" alt="picture"></a>
+      <a href="/users/edit">{{currentUser.name}}</a>
     </div>
     <div class="navbar-div">
       <form action="/auth/logout" method="POST">
-        <button class="button-logout"type="submit">Logout</button>
+        <button class="button-logout" type="submit">Logout</button>
       </form>
     </div>
 
   </nav>
   {{/if}}
-  
+
 
   {{{body}}}
-  
-  
+
+
 </body>
 
-  {{#if currentUser}}
-  <nav class="navbarFooter">
-    <div class="navbarFooter-container">
-       <div>
-         <a href="/events/new"><img src="/images/addEventLogo.png" alt="Add event"></a>
-      
-        </div>
-        <div>
-          <a href="/users/friends"><img src="/images/iconFriends.png" alt="Friends"></a>
-      
-         </div>
+{{#if currentUser}}
+<nav class="navbarFooter">
+  <div class="navbarFooter-container">
+    <div>
+      <a href="/events/new"><img src="/images/addEventLogo.png" alt="Add event"></a>
 
-         <div>
-           <a href="/events"><img src="/images/eventos.png" alt="Events"></a>
-        </div>
-        
-        <div>
-           <a href="/messages"><img src="/images/sobre.png" alt="Events"></a>
-        </div>
     </div>
-  </nav>
-  {{/if}}
+    <div>
+      <a href="/users/friends"><img src="/images/iconFriends.png" alt="Friends"></a>
+
+    </div>
+
+    <div>
+      <a href="/events"><img src="/images/eventos.png" alt="Events"></a>
+    </div>
+
+    <div>
+      <a href="/messages"><img src="/images/sobre.png" alt="Events"></a>
+    </div>
+  </div>
+</nav>
+{{/if}}
 
 
 </html>

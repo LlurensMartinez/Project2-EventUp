@@ -77,4 +77,14 @@ router.post('/edit', requireUser, parser.single('image'), requireFieldsLogin, as
   }
 });
 
+router.get('/info/:id', async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const user = await User.findById(id);
+    res.render('user/info', user);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
