@@ -1,13 +1,19 @@
-<h2>Message Reply</h2>
 
-{{#each message.body}}
-<p>{{this.message}}</p>
-{{/each}}
-
-<form action="/messages/{{message._id}}/edit" method="POST">
-<label for="body">Message</label>
-<input type="text" name="messages">
-<button type="submit">Send</button>
-</form>
-
-<a href="/messages">Back</a>
+<section class="message-replay-main">
+  <div class="messages-body-container">
+    <h2>Message Reply</h2>
+    {{#each message.body}}
+    <div class="messages-inner-container">
+      <p id="message">{{this.message}}</p>
+      <p id="sender"> by {{this.messageCreator}}</p>
+    </div>
+    {{/each}}
+  </div>
+  <div class="messages-form-container">
+    <a href="/messages">Back</a>
+    <form action="/messages/{{message._id}}/edit" method="POST">
+      <input type="text" name="messages">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>
