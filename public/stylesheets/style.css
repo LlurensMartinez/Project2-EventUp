@@ -56,6 +56,19 @@ h2 {
   background-color: #4ABDAC;
 }
 
+.navbar img {
+  width: 40px;
+  height: 40px;
+  border: solid 1px black;
+  border-radius: 20px;
+  margin-right: 15px;
+}
+
+.navbar-profile {
+  display: flex;
+  align-items: center;
+}
+
 .button-logout {
   color: white;
 }
@@ -66,7 +79,6 @@ nav button {
 }
 
 nav a {
-  padding: 20px;
   color: white;
   text-decoration: none;
 }
@@ -747,25 +759,24 @@ button {
 /* ------------- MESSAGES PAGE -------------------- */
 
 .messages-display-main {
-    /* background: linear-gradient(#4ABDAC, #99ff99); */
-    width: 100%;
-    height: 100vh;
-    
+  /* background: linear-gradient(#4ABDAC, #99ff99); */
+  width: 100%;
+  height: 100vh;
 }
 
 .main-message-display-container {
-    display: flex;
-    justify-content: space-between;
-    background-color:rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 2px 7px 0px rgba(0,0,0,0.75);
-    margin: 10px 5px;
-    border-radius: 8px;
-    padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+  margin: 10px 5px;
+  border-radius: 8px;
+  padding: 0 10px;
 }
 
 .main-message-display-container h4 {
-    margin: 0;
-    font-weight: 400;
+  margin: 0;
+  font-weight: 400;
 }
 
 .message-buttons-container {
@@ -774,9 +785,8 @@ button {
 }
 
 .fa-ban {
-    font-size: 20px;
-    color: #cc0000;
-
+  font-size: 20px;
+  color: #cc0000;
 }
 
 .fa-reply {
@@ -785,8 +795,8 @@ button {
 }
 
 .messages-display-main h2 {
-    font-family: 'Kaushan Script', sans-serif;
-    font-size: 2em;
+  font-family: 'Kaushan Script', sans-serif;
+  font-size: 2em;
 }
 
 .fa-user-friends {
@@ -798,12 +808,11 @@ button {
 }
 
 #messages-new-message {
-    top: 580px;
-    font-size: 30px;
-    margin: 0 10px;
-    position: fixed;
+  top: 580px;
+  font-size: 30px;
+  margin: 0 10px;
+  position: fixed;
 }
-
 
 /* ---------------- MESSAGES REPLY ----------------- */
 
@@ -815,12 +824,12 @@ button {
 }
 
 .message-replay-main h2 {
-    margin: 0 auto;
-    padding-top: 20px;
-    padding-bottom: 30px;
-    font-family: 'Kaushan Script', sans-serif;
-    color: white;
-    font-size: 2em;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  font-family: 'Kaushan Script', sans-serif;
+  color: white;
+  font-size: 2em;
 }
 
 .message-replay-main input {
@@ -880,45 +889,43 @@ button {
 }
 
 .messages-form-container a {
-    padding-top: 15px;
-    text-transform: uppercase;
+  padding-top: 15px;
+  text-transform: uppercase;
 }
 
 /* -------------- NEW MESSAGE ------------- */
 
 .new-message-main-container input::placeholder {
-    color: rgb(24, 22, 22);
-    font-size: 1.2em;
-    font-weight: 100;
-    font-family: 'Montserrat', sans-serif;
-    
+  color: rgb(24, 22, 22);
+  font-size: 1.2em;
+  font-weight: 100;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .new-message-main-container h2 {
-    font-family: 'Kaushan Script', sans-serif;
-    font-size: 2.5em;
+  font-family: 'Kaushan Script', sans-serif;
+  font-size: 2.5em;
 }
 
-.new-message-main-container input{
-    margin-left: 10px;
-    color: black;
-    border-bottom: 2px solid rgb(0, 0, 0);
+.new-message-main-container input {
+  margin-left: 10px;
+  color: black;
+  border-bottom: 2px solid rgb(0, 0, 0);
 }
 
 .new-message-main-container form {
-    margin-top: 60px;
+  margin-top: 60px;
 }
 
 .new-message-main-container button {
-    text-transform: uppercase;
-    border: 2px solid #4ABDAC;
-    padding: 10px 25px;
-    background: none;
-    font-size: 1.2em;
-    color: #4ABDAC;
-    font-weight: 500;
-    border-radius: 10px;
-    margin-left: 130px;
-    margin-top: 30px;
+  text-transform: uppercase;
+  border: 2px solid #4ABDAC;
+  padding: 10px 25px;
+  background: none;
+  font-size: 1.2em;
+  color: #4ABDAC;
+  font-weight: 500;
+  border-radius: 10px;
+  margin-left: 130px;
+  margin-top: 30px;
 }
-
