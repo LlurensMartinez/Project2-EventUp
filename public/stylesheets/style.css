@@ -1,9 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-.img-event {
-  width: 50px;
-  height: 50px;
-}
+/* @import url('https://fonts.googleapis.com/css?family=Kaushan+Script'); */
+
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat'); */
 
 a {
   color: rgb(181, 221, 236);
@@ -415,6 +412,10 @@ input {
   outline: none;
 }
 
+button {
+  outline: none;
+}
+
 /* friends.hbs */
 
 .hr-friends {
@@ -454,7 +455,6 @@ input {
   width: 35%;
   color: black;
   text-align: center;
-  
 }
 
 .friends-input {
@@ -504,7 +504,8 @@ input {
   margin-left: 50px;
   margin-top: 20px;
 }
-.friends-detail{
+
+.friends-detail {
   margin-bottom: 20px;
   display: flex;
   border: solid 1px black;
@@ -524,18 +525,33 @@ input {
 }
 
 .events-container h3 {
+  text-transform: uppercase;
   text-align: center;
 }
 
 .events-h2 {
-  margin-top: 15%;
-  font-size: 3em;
+  margin: 11%;
+  font-size: 3.5em;
+  font-family: 'Kaushan Script', cursive;
 }
 
 .myEvents {
-  background-color: rgb(237, 233, 233);
   width: 90%;
-  padding: 20px;
+  margin: 5% 0%;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  padding: 2%;
+}
+
+.events-container h3 {
+  font-size: 2em;
+  /* border-bottom: 2px solid black;
+    padding-bottom: 10px; */
+}
+
+.myEvents p {
+  font-size: 1.2em;
 }
 
 .myEvents div {
@@ -543,13 +559,95 @@ input {
   flex-direction: row;
   justify-content: space-around;
   text-decoration: none;
-  padding: 6px;
   font-weight: 300;
   font-size: 1.2em;
-  color: #ffffff;
-  background-color: #1883ba;
-  border-radius: 6px;
-  border: 2px solid #0016b0;
+  width: 100%;
+}
+
+.myEvents div a {
+  text-align: center;
+  color: #4ABDAC;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  border: 2px solid #4ABDAC;
+  padding: 5px 10px 5px 10px;
+  width: 36%;
+}
+
+.myEvents div form button {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  border: 2px solid#4ABDAC;
+  padding: 5px 10px 5px 10px;
+  background: none;
+  height: 40px;
+  color: #4ABDAC;
+}
+
+.img-event {
+  height: 150px;
+}
+
+.img-event img {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.myInvitations {
+  width: 89%;
+  height: 70px;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 49% 49%;
+  margin-bottom: 6%;
+}
+
+.myInvitations form {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  align-content: center;
+  align-items: center;
+  padding-left: 48px;
+  margin-bottom: 7%;
+  ;
+}
+
+.titleMoreInfoInvitations {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.titleMoreInfoInvitations p {
+  margin: 6px;
+}
+
+.titleMoreInfoInvitations a {
+  color: #4ABDAC;
+}
+
+#confirm {
+  color: green;
+  font-size: 3em;
+}
+
+#reject {
+  color: #CC0000;
+  font-size: 3em;
+}
+
+#white {
+  background: red;
+  height: 500px;
+  width: 100%;
+  margin-top: 50px;
 }
 
 /* Nav bar footer */
@@ -644,4 +742,131 @@ input {
 
 .label-upload-file {
   font-size: 11px;
+}
+
+/* ------------- MESSAGES PAGE -------------------- */
+
+.messages-display-main {
+  /* background: linear-gradient(#4ABDAC, #99ff99); */
+  width: 100%;
+  height: 100vh;
+}
+
+.main-message-display-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+  margin: 5px 5px;
+  border-radius: 8px;
+  padding: 0 10px;
+}
+
+.main-message-display-container h4 {
+  margin: 0;
+}
+
+.message-buttons-container {
+  display: flex;
+  padding-top: 8px;
+}
+
+.fa-ban {
+  font-size: 20px;
+  color: #cc0000;
+}
+
+.fa-reply {
+  color: #4ABDAC;
+  font-size: 25px;
+}
+
+.messages-display-main h2 {
+  text-transform: uppercase;
+}
+
+.fa-user-friends {
+  margin-right: 10px;
+}
+
+.fa-comment {
+  margin-right: 10px;
+}
+
+/* ---------------- MESSAGES REPLY ----------------- */
+
+.message-replay-main {
+  width: 100%;
+  height: 100vh;
+  background-image: url('/images/messages.jpg');
+  background-size: cover;
+}
+
+.message-replay-main h2 {
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.message-replay-main input {
+  background: black;
+  opacity: 0.7;
+  border: none;
+  width: 60%;
+  border-radius: 10px;
+  margin: 0;
+}
+
+.message-replay-main form {
+  display: flex;
+  justify-content: center;
+}
+
+.message-replay-main button {
+  background: #4ABDAC;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  margin-left: 10px;
+  height: 50px;
+}
+
+.messages-inner-container {
+  background: gray;
+  opacity: 0.7;
+  width: 40%;
+  border-radius: 10px;
+  margin-left: 10px;
+  padding-left: 10px;
+  color: white;
+  margin: 5px;
+}
+
+#message {
+  opacity: 1;
+  margin: 0;
+}
+
+#sender {
+  color: black;
+  opacity: 1;
+  font-size: 0.8em;
+  font-weight: bold;
+  margin: 0;
+}
+
+.messages-form-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+  position: fixed;
+  top: 550px;
+  left: 35px;
+}
+
+.messages-form-container a {
+  padding-top: 15px;
+  text-transform: uppercase;
 }
