@@ -77,7 +77,11 @@ router.get('/info/:id', requireUser, async (req, res, next) => {
 
     res.render('events/information', { coordinates, event });
   } catch (error) {
-    next(error);
+    if (error.name === 'CastError') {
+      res.status(404).render('not-found');
+    } else {
+      res.status(500).render('error');
+    }
   }
 });
 
@@ -87,7 +91,11 @@ router.get('/confirmations/:id', requireUser, async (req, res, next) => {
     const event = await Event.findById(id).populate('participants').populate('confirmations').populate('rejections');
     res.render('events/confirmations', event);
   } catch (error) {
-    next(error);
+    if (error.name === 'CastError') {
+      res.status(404).render('not-found');
+    } else {
+      res.status(500).render('error');
+    }
   }
 });
 
@@ -118,7 +126,11 @@ router.post('/invitations/:id', requireUser, async (req, res, next) => {
     await Event.findByIdAndUpdate(id, { $pull: { participants: _id } });
     res.redirect('/events');
   } catch (error) {
-    next(error);
+    if (error.name === 'CastError') {
+      res.status(404).render('not-found');
+    } else {
+      res.status(500).render('error');
+    }
   }
 });
 

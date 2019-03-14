@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const { requireUser, requireFieldsLogin } = require('../middlewares/auth');
-
+const mongoose = require('mongoose');
 const parser = require('../helpers/file-upload');
 
 /* GET users listing. */
@@ -82,7 +82,11 @@ router.get('/info/:id', async (req, res, next) => {
     const user = await User.findById(id);
     res.render('user/info', user);
   } catch (error) {
-    next(error);
+    if (error.name === 'CastError') {
+      res.status(404).render('not-found');
+    } else {
+      res.status(500).render('error');
+    }
   }
 });
 
