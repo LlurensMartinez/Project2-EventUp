@@ -1,28 +1,43 @@
-<h3>Pending</h3>
-<ul>
-{{#each participants}}
-<li>{{this.name}}</li>
-{{/each}}
-</ul>
+<div class="friends-container">
+  <h3 class="h3-confirmations">Pending</h3>
+  <ul>
+    {{#each participants}}
+    <div class="friends-detail">
+      <img src="{{this.imageUrl}}" alt="picture">
+      <div class="friends-list">
+        <li>{{this.name}}</li>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
+</div>
 
+<div class="friends-container">
+  <h3 class="h3-confirmations">Confirmed</h3>
+  <ul>
+    {{#each confirmations}}
+    <div class="friends-detail">
+      <img src="{{this.imageUrl}}" alt="picture">
+      <div class="friends-list">
+        <li>{{this.name}}</li>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
+</div>
 
-<h3>Confirmed</h3>
-<ul>
-{{#each confirmations}}
-<li>{{this.name}}</li>
-{{/each}}
-</ul>
-
-
-<h3>Rejected</h3>
-<ul>
-{{#each rejections}}
-<li>{{this.name}}</li>
-{{/each}}
-</ul>
-
-
+<div class="friends-container">
+  <h3 class="h3-confirmations">Rejected</h3>
+  <ul>
+    {{#each rejections}}
+    <div class="friends-detail">
+      <img src="{{this.imageUrl}}" alt="picture">
+      <div class="friends-list">
+        <li>{{this.name}}</li>
+      </div>
+    </div>
+    {{/each}}
+  </ul>
+</div>
 
 <a href="/events">Back</a>
-
-
