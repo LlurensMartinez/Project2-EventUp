@@ -16,7 +16,6 @@ router.get('/', requireUser, async (req, res, next) => {
   try {
     const events = await Event.find({ creator: _id });
     const invitations = await Event.find({ participants: _id });
-    console.log(invitations);
     const confirmations = await Event.find({ confirmations: _id });
     const rejections = await Event.find({ rejections: _id });
     res.render('events/events', { events, invitations, confirmations, rejections });
@@ -68,7 +67,6 @@ router.get('/info/:id', async (req, res, next) => {
       longitude: axiosCall.data.features[0].geometry.coordinates[0],
       latitude: axiosCall.data.features[0].geometry.coordinates[1]
     };
-    console.log(coordinates);
     res.render('events/information', { coordinates, event });
   } catch (error) {
     next(error);
@@ -93,7 +91,6 @@ router.get('/:id/add', requireUser, async (req, res, next) => {
 
   try {
     const event = await Event.findById(id).populate('participants');
-    console.log(event);
     res.render('events/event-add', { event, data });
   } catch (error) {
     next(error);

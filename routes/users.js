@@ -62,7 +62,6 @@ router.post('/edit', requireUser, parser.single('image'), requireFieldsLogin, as
   const { name, username, mail, password } = req.body;
   let { _id } = req.session.currentUser;
   let { imageUrl } = req.session.currentUser;
-  console.log(imageUrl);
   // let image = 'https://res.cloudinary.com/mbcloud/image/upload/v1552227481/event-up-users/userDefault.png';
   if (req.file !== undefined) {
     imageUrl = req.file.url;
