@@ -15,7 +15,6 @@ router.get('/', requireUser, async (req, res, next) => {
   try {
     const events = await Event.find({ creator: _id });
     const invitations = await Event.find({ participants: _id });
-    console.log(invitations);
     const confirmations = await Event.find({ confirmations: _id });
     const rejections = await Event.find({ rejections: _id });
     res.render('events/events', { events, invitations, confirmations, rejections });

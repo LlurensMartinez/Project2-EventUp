@@ -23,7 +23,6 @@ router.get('/:id/edit', requireUser, async (req, res, next) => {
   const { id } = req.params;
   try {
     const message = await Message.findById(id).populate('creator').populate('messageCreator');
-    console.log(message);
     res.render('messages/message-edit', { message });
   } catch (error) {
     next(error);
@@ -70,7 +69,6 @@ router.post('/:id/edit', requireUser, async (req, res, next) => {
     message: messages,
     messageCreator: req.session.currentUser.name
   };
-  console.log(newMessage);
   try {
     await Message.findByIdAndUpdate(id, { $push: { body: newMessage } }, { new: true });
     res.redirect(`/messages/${id}/edit`);
