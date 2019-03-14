@@ -19,17 +19,20 @@ const request = new OAuth.OAuth(
 
 router.get('/', async (req, res, next) => {
   await request.get(
-    'https://weather-ydn-yql.media.yahoo.com/forecastrss?location=sunnyvale,ca&format=json',
+    'https://weather-ydn-yql.media.yahoo.com/forecastrss?location=barcelona&format=json',
     null,
     null,
     (err, data, result) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(JSON.parse(data).location);
+        const weather = JSON.parse(data);
+        console.log(weather.forecasts);
+        res.render('weather/weather', { weather });
       }
     }
   );
+  // res.render('weather/weather', { weather });
 });
 
 module.exports = router;
