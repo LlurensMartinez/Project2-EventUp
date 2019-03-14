@@ -92,7 +92,8 @@ router.get('/:id/add', requireUser, async (req, res, next) => {
   };
 
   try {
-    const event = await Event.findById(id);
+    const event = await Event.findById(id).populate('participants');
+    console.log(event);
     res.render('events/event-add', { event, data });
   } catch (error) {
     next(error);
@@ -132,6 +133,11 @@ router.post('/:id/add', requireUser, async (req, res, next) => {
     const event = await Event.findById(id).populate('participants');
     let myFriend = false;
     let isInvited = false;
+    if (!participant) {
+      req.flash('validation', 'User does not exist');
+      res.redirect(`/events/${id}/add`);
+      return;
+    }
     user.friends.forEach(friend => {
       if (friend.name === participant.name) {
         myFriend = true;
