@@ -18,6 +18,7 @@ const usersRouter = require('./routes/users');
 const indexRouter = require('./routes/index');
 const eventsRouter = require('./routes/events');
 const deleteRouter = require('./routes/delete');
+const weatherRouter = require('./routes/weather');
 const commentsRouter = require('./routes/comments');
 
 const messagesRouter = require('./routes/messages');
@@ -104,6 +105,7 @@ app.use('/events', eventsRouter);
 app.use('/delete', deleteRouter);
 app.use('/messages', messagesRouter);
 app.use('/comments', commentsRouter);
+app.use('/weather', weatherRouter);
 
 // NOTE: requires a views/not-found.ejs template
 app.use((req, res, next) => {
