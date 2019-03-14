@@ -1,17 +1,30 @@
-<h1>MORE INFO</h1>
+<section class="event-more-information">
+  <h1>MORE INFO</h1>
+  <div class="event-info-main-div">
+    <div id="map">
 
-
-
-
-
-
-
-<div id="map">
-
-</div>
-
-<p class="longitude-p">{{coordinates.longitude}}</p>
-<p class="latitude-p">{{coordinates.latitude}}</p>
+    </div>
+      <p>{{event.address}}</p>
+      <h3>{{event.title}}</h3>
+      <p>{{event.description}}</p>
+      <p>{{event.date}}</p>
+      <p>{{event.valuation}}</p>
+      <form action="/comments/likes/{{event._id}}" method="POST">
+        <button type="submit">Like</button>
+      </form>
+      <h3>Comments</h3>
+      {{#each event.comments}}
+        <p>{{this.message}}</p>
+      {{/each}}  
+    <form action="/comments/{{event._id}}" method="POST">
+      <label for="message">Message</label>
+      <input type="text" name="message">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+  <p class="longitude-p">{{coordinates.longitude}}</p>
+  <p class="latitude-p">{{coordinates.latitude}}</p>
+</section>
 
 
 <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>

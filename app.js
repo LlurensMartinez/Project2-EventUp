@@ -18,7 +18,8 @@ const usersRouter = require('./routes/users');
 const indexRouter = require('./routes/index');
 const eventsRouter = require('./routes/events');
 const deleteRouter = require('./routes/delete');
-const emailRouter = require('./routes/email');
+const commentsRouter = require('./routes/comments');
+
 const messagesRouter = require('./routes/messages');
 const app = express();
 
@@ -103,7 +104,7 @@ app.use('/users', usersRouter);
 app.use('/events', eventsRouter);
 app.use('/delete', deleteRouter);
 app.use('/messages', messagesRouter);
-app.use('/email', emailRouter);
+app.use('/comments', commentsRouter);
 
 // NOTE: requires a views/not-found.ejs template
 app.use((req, res, next) => {

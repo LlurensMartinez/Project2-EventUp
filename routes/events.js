@@ -7,7 +7,6 @@ const Event = require('../models/Event');
 const User = require('../models/User');
 const moment = require('moment');
 const data = require('../helpers/email');
-
 const parser = require('../helpers/file-upload');
 const axios = require('axios');
 
@@ -58,17 +57,17 @@ router.post('/new', requireUser, parser.single('image'), requireFieldsNewEvent, 
   }
 });
 
-router.get('/info/:id', async (req, res, next) => {
+router.get('/info/:id', requireUser, async (req, res, next) => {
   const { id } = req.params;
   try {
-    const event = await Event.findById(id);
+    const event = await Event.findById(id).populate('commentCreator');
     const address = encodeURIComponent(event.address);
     const axiosCall = await axios(`https://api.opencagedata.com/geocode/v1/geojson?q=${address}&key=a13d1aa3e5c04193a98708915bca111a`);
     const coordinates = {
       longitude: axiosCall.data.features[0].geometry.coordinates[0],
       latitude: axiosCall.data.features[0].geometry.coordinates[1]
     };
-    console.log(coordinates);
+
     res.render('events/information', { coordinates, event });
   } catch (error) {
     next(error);
@@ -93,7 +92,6 @@ router.get('/:id/add', requireUser, async (req, res, next) => {
 
   try {
     const event = await Event.findById(id).populate('participants');
-    console.log(event);
     res.render('events/event-add', { event, data });
   } catch (error) {
     next(error);

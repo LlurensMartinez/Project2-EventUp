@@ -780,22 +780,9 @@ button {
 /* ------------- MESSAGES PAGE -------------------- */
 
 .messages-display-main {
-    /* background: linear-gradient(#4ABDAC, #99ff99); */
     width: 100%;
     height: 100vh;
 }
-
-/* .main-message-display-container {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
-    margin: 10px 5px;
-    border-radius: 8px;
-    padding: 0 10px;
-    width: 100%;
-    height: 100vh;
-} */
 
 .main-message-display-container {
   display: flex;
@@ -1007,4 +994,30 @@ button {
   margin-left: 130px;
   margin-top: 30px;
 
+}
+
+/* -------------- EVENT MORE INFO ---------------- */
+
+
+.longitude-p {
+    display: none;
+}
+
+.latitude-p {
+    display: none;
+}
+
+.event-info-main-div {
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+    margin: 0 10px;
+    border-radius: 8px;
+    height: 100%;
+}
+
+#map {
+    width: 100%;
+}
+
+.event-info-main-div input{
+    color: black;
 }
