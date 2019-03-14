@@ -1121,3 +1121,11 @@ button {
     justify-content: space-around;
     padding-bottom: 60px;
 }
+
+#sun-link {
+    font-size: 30px;
+    color: #4ABDAC;
+    margin-top: 10px;
+    margin-left: 10px;
+    
+}
