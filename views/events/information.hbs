@@ -20,8 +20,15 @@
       <h3>Comments</h3>
       {{#each event.comments}}
       <div class="comments-container">
-        <p>{{message}}</p>
-        <p class="message-creator">{{commentCreator.name}}</p>
+        <div>
+          <p>{{message}}</p>
+          <p class="message-creator">{{commentCreator.name}}</p>
+        </div>    
+        <form action="/delete/comment/{{_id}}" method="POST">
+          <button type="submit">
+            <i class="fas fa-times"></i>
+          </button>
+        </form>
       </div>
       {{/each}}  
       <form id="comment-form"action="/comments/{{event._id}}" method="POST">
