@@ -61,16 +61,16 @@ h2 {
 }
 
 .navbar img {
-  width: 40px;
-  height: 40px;
-  border: solid 1px black;
-  border-radius: 20px;
-  margin-right: 15px;
+    width: 40px;
+    height: 40px;
+    border: solid 1px black;
+    border-radius: 20px;
+    margin-right: 15px;
 }
 
 .navbar-profile {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .button-logout {
@@ -311,8 +311,6 @@ form .field.has-error input {
     background-color: #e5e3e3;
 }
 
-
-
 .options-index {
     display: flex;
     flex-direction: column;
@@ -328,8 +326,14 @@ form .field.has-error input {
 }
 
 .link-facebook {
-    text-decoration: underline;
-    color: white;
+    display: flex;
+    justify-content: center;
+    width: 12%;
+}
+
+.link-facebook img {
+    width: 100%;
+    height: 100%;
 }
 
 .menu-text2 {
@@ -464,7 +468,7 @@ button {
 }
 
 .friends-container h2 {
-    font-size: 3em;
+    font-size: 2.5em;
     font-family: 'Kaushan Script', cursive;
 }
 
@@ -573,7 +577,7 @@ button {
 
 .events-h2 {
     margin: 11%;
-    font-size: 3.5em;
+    font-size: 2.5em;
     font-family: 'Kaushan Script', cursive;
 }
 
@@ -587,7 +591,7 @@ button {
 }
 
 .events-container h3 {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .myEvents p {
@@ -631,7 +635,7 @@ button {
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
     border-radius: 10px;
     display: grid;
-    grid-template-columns: 49% 49%;
+    grid-template-columns: 64% 35%;
     margin-bottom: 6%;
 }
 
@@ -641,25 +645,38 @@ button {
     justify-content: flex-end;
     align-content: center;
     align-items: center;
-    padding-left: 48px;
     margin-bottom: 7%;
-    ;
+}
+
+#aUpcoming {
+    text-align: center;
+    margin-top: 19%;
+    color: #4ABDAC;
+    font-size: 1.5em;
+}
+
+#pUpcoming {
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 38%;
 }
 
 .titleMoreInfoInvitations {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     justify-content: center;
     align-content: center;
     align-items: center;
 }
 
 .titleMoreInfoInvitations p {
-    margin: 6px;
+    margin: 5px 0px 5px 24px;
+    ;
 }
 
 .titleMoreInfoInvitations a {
+    font-size: 1.5em;
     color: #4ABDAC;
 }
 
@@ -785,6 +802,7 @@ button {
     height: 100vh;
 }
 
+
 /* .main-message-display-container {
     display: flex;
     justify-content: space-between;
@@ -798,18 +816,18 @@ button {
 } */
 
 .main-message-display-container {
-  display: flex;
-  justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.1);
-  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
-  margin: 10px 5px;
-  border-radius: 8px;
-  padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+    margin: 10px 5px;
+    border-radius: 8px;
+    padding: 0 10px;
 }
 
 .main-message-display-container h4 {
-  margin: 0;
-  font-weight: 400;
+    margin: 0;
+    font-weight: 400;
 }
 
 .message-buttons-container {
@@ -818,8 +836,8 @@ button {
 }
 
 .fa-ban {
-  font-size: 20px;
-  color: #cc0000;
+    font-size: 20px;
+    color: #cc0000;
 }
 
 .fa-reply {
@@ -828,8 +846,8 @@ button {
 }
 
 .messages-display-main h2 {
-  font-family: 'Kaushan Script', sans-serif;
-  font-size: 2em;
+    font-family: 'Kaushan Script', sans-serif;
+    font-size: 2em;
 }
 
 .fa-user-friends {
@@ -841,11 +859,12 @@ button {
 }
 
 #messages-new-message {
-  top: 580px;
-  font-size: 30px;
-  margin: 0 10px;
-  position: fixed;
+    top: 580px;
+    font-size: 30px;
+    margin: 0 10px;
+    position: fixed;
 }
+
 
 /* ---------------- MESSAGES REPLY ----------------- */
 
@@ -857,12 +876,12 @@ button {
 }
 
 .message-replay-main h2 {
-  margin: 0 auto;
-  padding-top: 20px;
-  padding-bottom: 30px;
-  font-family: 'Kaushan Script', sans-serif;
-  color: white;
-  font-size: 2em;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    font-family: 'Kaushan Script', sans-serif;
+    color: white;
+    font-size: 2em;
 }
 
 .message-replay-main input {
@@ -922,33 +941,33 @@ button {
 }
 
 .messages-form-container a {
-  padding-top: 15px;
-  text-transform: uppercase;
+    padding-top: 15px;
+    text-transform: uppercase;
 }
 
 
 /* -------------- NEW MESSAGE ------------- */
 
 .new-message-main-container input::placeholder {
-  color: rgb(24, 22, 22);
-  font-size: 1.2em;
-  font-weight: 100;
-  font-family: 'Montserrat', sans-serif;
+    color: rgb(24, 22, 22);
+    font-size: 1.2em;
+    font-weight: 100;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .new-message-main-container h2 {
-  font-family: 'Kaushan Script', sans-serif;
-  font-size: 2.5em;
+    font-family: 'Kaushan Script', sans-serif;
+    font-size: 2.5em;
 }
 
 .new-message-main-container input {
-  margin-left: 10px;
-  color: black;
-  border-bottom: 2px solid rgb(0, 0, 0);
+    margin-left: 10px;
+    color: black;
+    border-bottom: 2px solid rgb(0, 0, 0);
 }
 
 .new-message-main-container form {
-  margin-top: 60px;
+    margin-top: 60px;
 }
 
 .new-message-main-container button {
@@ -971,12 +990,10 @@ button {
     text-align: center;
 }
 
-
 .event-add-friends-main h2 {
     font-family: 'Kaushan Script', sans-serif;
-    font-size: 2.5em; 
+    font-size: 2.5em;
 }
-
 
 .event-add-friends-main h3 {
     padding-top: 50px;
@@ -996,15 +1013,14 @@ button {
 #add-friend-btn {
     font-size: 2em;
     margin-top: 15px;
-  text-transform: uppercase;
-  border: 2px solid #4ABDAC;
-  padding: 10px 25px;
-  background: none;
-  font-size: 1.2em;
-  color: #4ABDAC;
-  font-weight: 500;
-  border-radius: 10px;
-  margin-left: 130px;
-  margin-top: 30px;
-
+    text-transform: uppercase;
+    border: 2px solid #4ABDAC;
+    padding: 10px 25px;
+    background: none;
+    font-size: 1.2em;
+    color: #4ABDAC;
+    font-weight: 500;
+    border-radius: 10px;
+    margin-left: 130px;
+    margin-top: 30px;
 }
