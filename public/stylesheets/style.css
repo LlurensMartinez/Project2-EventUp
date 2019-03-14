@@ -1,5 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css?family=Kaushan+Script'); */
 
+
 /* @import url('https://fonts.googleapis.com/css?family=Montserrat'); */
 
 a {
@@ -24,7 +25,9 @@ html {
     width: 100vw;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
@@ -41,6 +44,7 @@ h2 {
 .invitation-form-input {
     visibility: hidden;
 }
+
 
 /* nav-bar */
 
@@ -86,6 +90,7 @@ nav a {
 .container {
     margin: 0 20px;
 }
+
 
 /* -- forms -- */
 
@@ -138,6 +143,7 @@ form input {
     font-family: 'Montserrat', sans-serif;
 }
 
+
 /* WebKit */
 
 .input-hour {
@@ -169,6 +175,7 @@ form .field.has-error input {
     border: 1px solid red;
 }
 
+
 /* Flash */
 
 .validation li {
@@ -176,11 +183,13 @@ form .field.has-error input {
     font-size: 17px;
 }
 
+
 /* Layout hbs */
 
 .navbar div p {
     color: white;
 }
+
 
 /* New Event hbs */
 
@@ -243,6 +252,7 @@ form .field.has-error input {
     color: black;
 }
 
+
 /* Index */
 
 .menu-text {
@@ -259,6 +269,7 @@ form .field.has-error input {
     width: 50%;
     text-transform: uppercase;
 }
+
 
 /* Index No logs hbs */
 
@@ -289,6 +300,7 @@ form .field.has-error input {
     margin-top: 16%;
 }
 
+
 /* Index logs */
 
 .home-main-div {
@@ -314,8 +326,14 @@ form .field.has-error input {
 }
 
 .link-facebook {
-    text-decoration: underline;
-    color: white;
+    display: flex;
+    justify-content: center;
+    width: 12%;
+}
+
+.link-facebook img {
+    width: 100%;
+    height: 100%;
 }
 
 .menu-text2 {
@@ -362,6 +380,7 @@ form .field.has-error input {
     height: 29%;
 }
 
+
 /* Login.hbs */
 
 .container-login {
@@ -387,6 +406,7 @@ form .field.has-error input {
     align-items: center;
     width: 100%;
 }
+
 
 /* SignUp.hbs */
 
@@ -422,6 +442,7 @@ button {
     outline: none;
 }
 
+
 /* friends.hbs */
 
 .hr-friends {
@@ -447,7 +468,7 @@ button {
 }
 
 .friends-container h2 {
-    font-size: 3em;
+    font-size: 2.5em;
     font-family: 'Kaushan Script', cursive;
 }
 
@@ -537,6 +558,7 @@ button {
     color: #4ABDAC;
 }
 
+
 /* Events hs */
 
 .events-container {
@@ -555,7 +577,7 @@ button {
 
 .events-h2 {
     margin: 11%;
-    font-size: 3.5em;
+    font-size: 2.5em;
     font-family: 'Kaushan Script', cursive;
 }
 
@@ -569,7 +591,7 @@ button {
 }
 
 .events-container h3 {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 .myEvents p {
@@ -613,7 +635,7 @@ button {
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
     border-radius: 10px;
     display: grid;
-    grid-template-columns: 49% 49%;
+    grid-template-columns: 64% 35%;
     margin-bottom: 6%;
 }
 
@@ -623,25 +645,38 @@ button {
     justify-content: flex-end;
     align-content: center;
     align-items: center;
-    padding-left: 48px;
     margin-bottom: 7%;
-    ;
+}
+
+#aUpcoming {
+    text-align: center;
+    margin-top: 19%;
+    color: #4ABDAC;
+    font-size: 1.5em;
+}
+
+#pUpcoming {
+    text-align: center;
+    margin-top: 5%;
+    margin-left: 38%;
 }
 
 .titleMoreInfoInvitations {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
     justify-content: center;
     align-content: center;
     align-items: center;
 }
 
 .titleMoreInfoInvitations p {
-    margin: 6px;
+    margin: 5px 0px 5px 24px;
+    ;
 }
 
 .titleMoreInfoInvitations a {
+    font-size: 1.5em;
     color: #4ABDAC;
 }
 
@@ -661,6 +696,7 @@ button {
     width: 100%;
     margin-top: 50px;
 }
+
 
 /* Nav bar footer */
 
@@ -698,6 +734,7 @@ button {
     width: 300px;
     height: 200px;
 }
+
 
 /**PROFILE**/
 
@@ -756,6 +793,7 @@ button {
     font-size: 11px;
 }
 
+
 /* ------------- MESSAGES PAGE -------------------- */
 
 .messages-display-main {
@@ -813,6 +851,7 @@ button {
     margin: 0 10px;
     position: fixed;
 }
+
 
 /* ---------------- MESSAGES REPLY ----------------- */
 
@@ -893,6 +932,7 @@ button {
     text-transform: uppercase;
 }
 
+
 /* -------------- NEW MESSAGE ------------- */
 
 .new-message-main-container input::placeholder {
@@ -929,6 +969,7 @@ button {
     margin-left: 130px;
     margin-top: 30px;
 }
+
 
 /* ---------- EVENT ADD FRIENDS ----------- */
 
@@ -968,10 +1009,11 @@ button {
     margin-top: 30px;
 }
 
-.h3-confirmations{
-text-align: center;
+.h3-confirmations {
+    text-align: center;
 }
-.nf404{
+
+.nf404 {
     height: 90%;
     width: 100%;
 }

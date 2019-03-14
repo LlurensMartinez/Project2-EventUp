@@ -13,7 +13,7 @@
       <p><strong>Date:</strong> {{this.date}}</p>
       <p><strong></strong> {{this.time}}</p>
     <div>
-      <a href="/events/{{_id}}/add"><i class="fas fa-plus"></i></a>
+      <a href="/events/{{_id}}/add"><i class="fas fa-user-plus"></i></a>
       <a href="/events/confirmations/{{_id}}"><i class="fas fa-info-circle"></i></i></a>
       <form action="/delete/{{_id}}" method="POST">
         <button type="submit"><i class="far fa-trash-alt"></i></button>
@@ -27,8 +27,8 @@
   {{#each invitations}}
   <div class="myInvitations">
     <div class="titleMoreInfoInvitations">
-    <p><strong>Title: </strong>{{this.title}}</p>
-    <a href="events/info/{{_id}}">More info</a>
+    <p><strong>Event: </strong>{{this.title}}</p>
+    <a href="events/info/{{_id}}"><i class="fas fa-info-circle"></i></a>
     </div>
     <form action="/events/invitations/{{_id}}" method="POST">
         <input class="invitation-form-input" type="text" name="confirmation">
@@ -39,12 +39,12 @@
   {{/each}}
   
   <h3>Upcoming Events</h3>
-  <div class="myInvitations" style="margin-bottom: 90px;">  
-    {{#each confirmations}}
-      <p>{{this.title}}</p> 
-      <a href="/events/info/{{_id}}">More info"</a>
-    {{/each}}
+  {{#each confirmations}}
+  <div class="myInvitations" style="margin-bottom: 50px;">  
+      <p id="pUpcoming"><strong>Event: </strong>{{this.title}}</p> 
+      <a id="aUpcoming" href="/events/info/{{_id}}"><i class="fas fa-info-circle"></i></a> 
   </div>  
+  {{/each}}
 </div>
 
 
