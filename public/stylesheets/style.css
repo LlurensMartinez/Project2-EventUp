@@ -1129,3 +1129,23 @@ button {
     margin-left: 10px;
     
 }
+
+
+/* ---------- CANGURO ------------ */
+
+.canguro-main {
+    padding-bottom: 50px;
+}
+
+#img-canguro {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.main-canguro-div {
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    padding: 5px 0 5px 5px;
+    margin: 10px auto; 
+}
