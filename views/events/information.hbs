@@ -4,23 +4,31 @@
     <div id="map">
 
     </div>
+    <div class="event-info-inner-div">
       <p>{{event.address}}</p>
       <h3>{{event.title}}</h3>
       <p>{{event.description}}</p>
       <p>{{event.date}}</p>
-      <p>{{event.valuation}}</p>
-      <form action="/comments/likes/{{event._id}}" method="POST">
-        <button type="submit">Like</button>
-      </form>
+      <div class="likes-div">
+        <p class="valuation-number">{{event.valuation}}</p>
+        <form action="/comments/likes/{{event._id}}" method="POST">
+          <button type="submit">
+            <i id="like-event" class="fas fa-thumbs-up"></i>
+          </button>
+        </form>
+      </div>
       <h3>Comments</h3>
       {{#each event.comments}}
-        <p>{{this.message}}</p>
+      <div class="comments-container">
+        <p>{{message}}</p>
+        <p class="message-creator">{{commentCreator.name}}</p>
+      </div>
       {{/each}}  
-    <form action="/comments/{{event._id}}" method="POST">
-      <label for="message">Message</label>
-      <input type="text" name="message">
-      <button type="submit">Send</button>
-    </form>
+      <form id="comment-form"action="/comments/{{event._id}}" method="POST">
+        <input type="text" name="message" placeholder="comment">
+        <button type="submit">Send</button>
+      </form>
+    </div>
   </div>
   <p class="longitude-p">{{coordinates.longitude}}</p>
   <p class="latitude-p">{{coordinates.latitude}}</p>

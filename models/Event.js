@@ -62,7 +62,6 @@ const eventSchema = new Schema({
   imageUrl: {
     type: String
   }
-
 });
 
 const Event = mongoose.model('Event', eventSchema);

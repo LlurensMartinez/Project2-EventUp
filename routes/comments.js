@@ -45,7 +45,8 @@ router.post('/:id', requireUser, async (req, res, next) => {
     message: message
   };
   try {
-    await Event.findByIdAndUpdate(id, { $push: { comments: comment } });
+    const event = await Event.findByIdAndUpdate(id, { $push: { comments: comment } });
+    console.log(event);
     res.redirect(`/events/info/${id}`);
   } catch (error) {
     next(error);
