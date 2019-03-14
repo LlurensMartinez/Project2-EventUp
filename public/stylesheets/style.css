@@ -727,8 +727,8 @@ button {
 }
 
 .container-profile {
-    display: grid;
-    grid-template-columns: 55% auto;
+    display: flex;
+    justify-content: center;
 }
 
 .p-profile {
