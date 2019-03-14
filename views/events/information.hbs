@@ -23,12 +23,14 @@
         <div>
           <p>{{message}}</p>
           <p class="message-creator">{{commentCreator.name}}</p>
-        </div>    
+        </div> 
+        {{#if this.isMine}}
         <form action="/delete/comment/{{_id}}" method="POST">
           <button type="submit">
             <i class="fas fa-times"></i>
           </button>
         </form>
+        {{/if}}
       </div>
       {{/each}}  
       <form id="comment-form"action="/comments/{{event._id}}" method="POST">

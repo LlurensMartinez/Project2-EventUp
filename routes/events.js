@@ -59,9 +59,16 @@ router.post('/new', requireUser, parser.single('image'), requireFieldsNewEvent, 
 
 router.get('/info/:id', requireUser, async (req, res, next) => {
   const { id } = req.params;
+  const { _id } = req.session.currentUser;
   try {
-    const event = await Event.findById(id).populate('comments.commentCreator');
-
+    let event = await Event.findById(id).populate('comments.commentCreator');
+    event = event.toJSON();
+    event.comments.forEach(comment => {
+      if (comment.commentCreator._id.toString() === _id) {
+        comment.isMine = true;
+      }
+    });
+    console.log(event.comments);
     const address = encodeURIComponent(event.address);
     const axiosCall = await axios(`https://api.opencagedata.com/geocode/v1/geojson?q=${address}&key=a13d1aa3e5c04193a98708915bca111a`);
     const coordinates = {

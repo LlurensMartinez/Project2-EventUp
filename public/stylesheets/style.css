@@ -981,8 +981,8 @@ button {
 }
 
 #add-friend-btn {
-    font-size: 2em;
-    margin-top: 15px;
+  font-size: 2em;
+  margin-top: 15px;
   text-transform: uppercase;
   border: 2px solid #4ABDAC;
   padding: 10px 25px;
@@ -1005,6 +1005,12 @@ button {
 
 .latitude-p {
     display: none;
+}
+
+.event-more-information h1 {
+    font-size: 2em;
+    font-family: 'Kaushan Script', sans-serif;
+    
 }
 
 .event-info-main-div {
@@ -1080,5 +1086,6 @@ button {
     height: 47px;
     margin-top: 8px;
     margin-left: 3px;
+    border: none;
 }
 
