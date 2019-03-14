@@ -778,7 +778,6 @@ button {
 /* ------------- MESSAGES PAGE -------------------- */
 
 .messages-display-main {
-    /* background: linear-gradient(#4ABDAC, #99ff99); */
     width: 100%;
     height: 100vh;
 }
@@ -995,3 +994,98 @@ button {
     height: 90%;
     width: 100%;
 }
+
+/* -------------- EVENT MORE INFO ---------------- */
+
+
+.longitude-p {
+    display: none;
+}
+
+.latitude-p {
+    display: none;
+}
+
+.event-more-information h1 {
+    font-size: 2em;
+    font-family: 'Kaushan Script', sans-serif;
+    
+}
+
+.event-info-main-div {
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+    margin: 0 10px;
+    border-radius: 8px;  
+}
+
+.event-info-inner-div {
+    text-align: center;
+}
+
+#map {
+    width: 100%;
+}
+
+.event-info-main-div input{
+    color: black;
+}
+
+.likes-div {
+    display: flex;
+    justify-content: center;
+}
+
+#like-event {
+    font-size: 28px;
+    color: #4ABDAC;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.valuation-number {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4ABDAC;
+}
+
+.comments-container {
+    text-align: start;
+    margin: 10px auto;
+    width: 50%;
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.message-creator {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+#comment-form {
+    display: flex;
+    margin-bottom: 100px;
+}
+
+#comment-form input {
+    width: 40%;
+    background: black;
+    opacity: 0.7;
+    color: white;
+    border-radius: 8px;
+    margin-left: 95px;
+}
+
+#comment-form button {
+    background: #4ABDAC;
+    border-radius: 8px;
+    color: white;
+    height: 47px;
+    margin-top: 8px;
+    margin-left: 3px;
+    border: none;
+}
+
+  

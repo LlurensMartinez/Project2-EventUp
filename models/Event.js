@@ -26,6 +26,27 @@ const eventSchema = new Schema({
     type: ObjectId,
     required: true
   },
+  comments: [{
+    commentCreator: {
+      type: ObjectId,
+      ref: 'User',
+      require: true
+    },
+    message: {
+      type: String
+    }
+  }],
+  valuation: {
+    type: Number,
+    default: 0
+  },
+  usersLike: [{
+    user: {
+      type: ObjectId,
+      ref: 'User',
+      require: true
+    }
+  }],
   participants: [{
     type: ObjectId,
     ref: 'User'
