@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const { requireUser, requireFieldsLogin } = require('../middlewares/auth');
-const mongoose = require('mongoose');
 const parser = require('../helpers/file-upload');
 
 /* GET users listing. */
@@ -15,6 +14,9 @@ router.get('/friends', requireUser, async (req, res, next) => {
   try {
     if (name) {
       var friend = await User.findOne({ name });
+      if (!friend) {
+        req.flash('validation', 'Thats not a user');
+      }
     }
     const myFriends = await User.findById(_id).populate('friends');
     res.render('user/friends', { friend, myFriends, data });
@@ -36,7 +38,7 @@ router.post('/friends', requireUser, async (req, res, next) => {
         return checked;
       }
     });
-    if (!checked && _id != friend._id) {
+    if (!checked && _id.toString() !== friend._id.toString()) {
       await User.findByIdAndUpdate({ _id }, { $push: { friends: friend } });
       res.redirect('/users/friends');
       return;
