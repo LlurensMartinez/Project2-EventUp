@@ -1,0 +1,14 @@
+<section class="weather-main">
+  <h1>WEATHER</h1>
+  <div class="weather-container">
+  {{#each weather.forecasts}}
+    <div class="weather-thumb-nail">
+      <p>Day: <strong>{{this.day}}</strong></p>
+      <p>Temperature:</p>
+      <p>min: {{this.low}} farenheit</p>
+      <p>min: {{this.high}} farenheit</p>
+      <p>Status: {{this.text}}</p>
+    </div>
+  {{/each}}
+  </div>
+</section>

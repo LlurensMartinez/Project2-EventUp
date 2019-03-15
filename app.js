@@ -14,10 +14,12 @@ const facebookConfiguration = require('./helpers/configuration');
 const FacebookStrategy = require('passport-facebook').Strategy;
 const User = require('./models/User');
 const authRouter = require('./routes/auth');
+const apiRouter = require('./routes/api');
 const usersRouter = require('./routes/users');
 const indexRouter = require('./routes/index');
 const eventsRouter = require('./routes/events');
 const deleteRouter = require('./routes/delete');
+const weatherRouter = require('./routes/weather');
 const commentsRouter = require('./routes/comments');
 
 const messagesRouter = require('./routes/messages');
@@ -99,11 +101,13 @@ app.use((req, res, next) => {
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/api', apiRouter);
 app.use('/users', usersRouter);
 app.use('/events', eventsRouter);
 app.use('/delete', deleteRouter);
 app.use('/messages', messagesRouter);
 app.use('/comments', commentsRouter);
+app.use('/weather', weatherRouter);
 
 // NOTE: requires a views/not-found.ejs template
 app.use((req, res, next) => {
