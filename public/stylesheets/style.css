@@ -1,5 +1,6 @@
 /* @import url('https://fonts.googleapis.com/css?family=Kaushan+Script'); */
 
+
 /* @import url('https://fonts.googleapis.com/css?family=Montserrat'); */
 
 a {
@@ -24,7 +25,9 @@ html {
     width: 100vw;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
     box-sizing: inherit;
 }
 
@@ -41,6 +44,7 @@ h2 {
 .invitation-form-input {
     visibility: hidden;
 }
+
 
 /* nav-bar */
 
@@ -86,6 +90,7 @@ nav a {
 .container {
     margin: 0 20px;
 }
+
 
 /* -- forms -- */
 
@@ -138,6 +143,7 @@ form input {
     font-family: 'Montserrat', sans-serif;
 }
 
+
 /* WebKit */
 
 .input-hour {
@@ -169,6 +175,7 @@ form .field.has-error input {
     border: 1px solid red;
 }
 
+
 /* Flash */
 
 .validation li {
@@ -176,11 +183,13 @@ form .field.has-error input {
     font-size: 17px;
 }
 
+
 /* Layout hbs */
 
 .navbar div p {
     color: white;
 }
+
 
 /* New Event hbs */
 
@@ -243,6 +252,7 @@ form .field.has-error input {
     color: black;
 }
 
+
 /* Index */
 
 .menu-text {
@@ -259,6 +269,7 @@ form .field.has-error input {
     width: 50%;
     text-transform: uppercase;
 }
+
 
 /* Index No logs hbs */
 
@@ -288,6 +299,7 @@ form .field.has-error input {
     color: white;
     margin-top: 16%;
 }
+
 
 /* Index logs */
 
@@ -368,6 +380,7 @@ form .field.has-error input {
     height: 29%;
 }
 
+
 /* Login.hbs */
 
 .container-login {
@@ -393,6 +406,7 @@ form .field.has-error input {
     align-items: center;
     width: 100%;
 }
+
 
 /* SignUp.hbs */
 
@@ -427,6 +441,7 @@ input {
 button {
     outline: none;
 }
+
 
 /* friends.hbs */
 
@@ -543,6 +558,7 @@ button {
     color: #4ABDAC;
 }
 
+
 /* Events hs */
 
 .events-container {
@@ -568,7 +584,6 @@ button {
 .myEvents {
     width: 90%;
     margin: 5% 0%;
-    background-color: rgba(0, 0, 0, 0.1);
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
     border-radius: 10px;
     padding: 2%;
@@ -615,7 +630,6 @@ button {
 .myInvitations {
     width: 89%;
     height: 70px;
-    background-color: rgba(0, 0, 0, 0.1);
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
     border-radius: 10px;
     display: grid;
@@ -681,6 +695,7 @@ button {
     margin-top: 50px;
 }
 
+
 /* Nav bar footer */
 
 .navbarFooter {
@@ -717,6 +732,7 @@ button {
     width: 300px;
     height: 200px;
 }
+
 
 /**PROFILE**/
 
@@ -775,6 +791,7 @@ button {
     font-size: 11px;
 }
 
+
 /* ------------- MESSAGES PAGE -------------------- */
 
 .messages-display-main {
@@ -831,6 +848,7 @@ button {
     margin: 0 10px;
     position: fixed;
 }
+
 
 /* ---------------- MESSAGES REPLY ----------------- */
 
@@ -911,6 +929,7 @@ button {
     text-transform: uppercase;
 }
 
+
 /* -------------- NEW MESSAGE ------------- */
 
 .new-message-main-container input::placeholder {
@@ -947,6 +966,7 @@ button {
     margin-left: 130px;
     margin-top: 30px;
 }
+
 
 /* ---------- EVENT ADD FRIENDS ----------- */
 
@@ -995,8 +1015,16 @@ button {
     width: 100%;
 }
 
-/* -------------- EVENT MORE INFO ---------------- */
+.backButton {
+    border: 2px #4ABDAC solid;
+    padding: 10px 20px 10px 20px;
+    margin-left: 145px;
+    color: #4ABDAC;
+    border-radius: 10px;
+}
 
+
+/* -------------- EVENT MORE INFO ---------------- */
 
 .longitude-p {
     display: none;
@@ -1009,13 +1037,12 @@ button {
 .event-more-information h1 {
     font-size: 2em;
     font-family: 'Kaushan Script', sans-serif;
-    
 }
 
 .event-info-main-div {
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
     margin: 0 10px;
-    border-radius: 8px;  
+    border-radius: 8px;
 }
 
 .event-info-inner-div {
@@ -1026,7 +1053,7 @@ button {
     width: 100%;
 }
 
-.event-info-main-div input{
+.event-info-main-div input {
     color: black;
 }
 
@@ -1088,7 +1115,7 @@ button {
     border: none;
 }
 
-  
+
 /* ----------- WEATHER VIEW -------------- */
 
 .weather-main {
@@ -1127,7 +1154,6 @@ button {
     color: #4ABDAC;
     margin-top: 10px;
     margin-left: 10px;
-    
 }
 
 
@@ -1147,5 +1173,5 @@ button {
     box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
     border-radius: 10px;
     padding: 5px 0 5px 5px;
-    margin: 10px auto; 
+    margin: 10px auto;
 }
