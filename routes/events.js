@@ -35,7 +35,7 @@ router.post('/new', requireUser, parser.single('image'), requireFieldsNewEvent, 
   const dateModify = moment(new Date(`${dateEvent} ${time}`)).format('dddd, DD/MM/YYYY, h:mm a');
   const date = dateModify;
 
-  let image = 'https://res.cloudinary.com/mbcloud/image/upload/v1552206295/event-up-events/party.png';
+  let image = 'https://res.cloudinary.com/mbcloud/image/upload/v1552656024/event-up-events/event-default.png';
   if (req.file !== undefined) {
     image = req.file.url;
   }
